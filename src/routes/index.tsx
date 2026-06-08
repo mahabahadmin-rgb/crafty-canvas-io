@@ -11,6 +11,9 @@ import assetTower from "@/assets/asset-tower.jpg";
 import assetVilla from "@/assets/asset-villa.jpg";
 import assetCommercial from "@/assets/asset-commercial.jpg";
 import newsHero from "@/assets/news-hero.jpg";
+import ctaBanner from "@/assets/cta-banner.jpg";
+import contactPerson from "@/assets/contact-person.jpg";
+import footerBg from "@/assets/footer-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
