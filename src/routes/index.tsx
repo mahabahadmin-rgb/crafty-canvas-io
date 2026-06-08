@@ -616,8 +616,12 @@ function CTA() {
 function Footer() {
   return (
     <footer className="bg-ink text-ink-foreground pt-16 pb-8 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.07] mix-blend-screen">
+        <img src={footerBg} alt="" loading="lazy" width={1920} height={512} className="w-full h-full object-cover" />
+      </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent" />
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 relative">
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
