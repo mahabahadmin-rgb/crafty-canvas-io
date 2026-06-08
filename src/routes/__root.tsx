@@ -78,7 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "مهابة — إدارة المساهمات العقارية" },
-      { name: "description", content: "نحوّل الأصول العقارية إلى مساهمات استثمارية ومشاريع منظمة وفق أعلى معايير الحوكمة والامتثال." },
+      {
+        name: "description",
+        content:
+          "نحوّل الأصول العقارية إلى مساهمات استثمارية ومشاريع منظمة وفق أعلى معايير الحوكمة والامتثال.",
+      },
       { name: "author", content: "Mahabah" },
       { property: "og:title", content: "مهابة — إدارة المساهمات العقارية" },
       { property: "og:description", content: "حيث نصان الثروة ونبني الأصول." },

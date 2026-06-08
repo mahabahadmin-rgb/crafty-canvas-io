@@ -85,7 +85,10 @@
       radial-gradient(ellipse at 20% 0%, oklch(0.62 0.12 55 / 0.06), transparent 50%),
       radial-gradient(ellipse at 80% 100%, oklch(0.42 0.09 50 / 0.05), transparent 50%);
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
@@ -95,8 +98,12 @@
   background-image:
     radial-gradient(oklch(0.45 0.03 260 / 0.04) 1px, transparent 1px),
     radial-gradient(oklch(0.45 0.03 260 / 0.03) 1px, transparent 1px);
-  background-size: 24px 24px, 12px 12px;
-  background-position: 0 0, 6px 6px;
+  background-size:
+    24px 24px,
+    12px 12px;
+  background-position:
+    0 0,
+    6px 6px;
 }
 
 @utility hairline {
@@ -110,7 +117,9 @@
   box-shadow:
     0 1px 0 oklch(0.62 0.12 55 / 0.05),
     0 18px 40px -24px oklch(0.22 0.04 260 / 0.18);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 @utility card-sketch-hover {
   &:hover {
