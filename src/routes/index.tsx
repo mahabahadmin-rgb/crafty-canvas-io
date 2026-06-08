@@ -95,6 +95,7 @@ function Index() {
       <Knowledge />
       <Stats />
       <Partners />
+      <ContactForm />
       <FAQ />
       <CTA />
       <Footer />
