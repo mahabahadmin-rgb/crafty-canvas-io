@@ -11,6 +11,9 @@ import assetTower from "@/assets/asset-tower.jpg";
 import assetVilla from "@/assets/asset-villa.jpg";
 import assetCommercial from "@/assets/asset-commercial.jpg";
 import newsHero from "@/assets/news-hero.jpg";
+import ctaBanner from "@/assets/cta-banner.jpg";
+import contactPerson from "@/assets/contact-person.jpg";
+import footerBg from "@/assets/footer-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -92,6 +95,7 @@ function Index() {
       <Knowledge />
       <Stats />
       <Partners />
+      <ContactForm />
       <FAQ />
       <CTA />
       <Footer />
@@ -512,32 +516,97 @@ function FAQ() {
   );
 }
 
+function ContactForm() {
+  return (
+    <section className="py-24 paper-texture">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div className="absolute inset-0 bg-gradient-to-tr from-copper/15 to-transparent rounded-3xl blur-2xl" />
+            <img
+              src={contactPerson}
+              alt="استشاري عقاري"
+              loading="lazy"
+              width={896}
+              height={1024}
+              className="relative w-full max-w-md mx-auto rounded-2xl border border-copper/30 shadow-[0_30px_80px_-40px_rgba(60,40,20,0.45)]"
+            />
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] text-copper-deep uppercase mb-3">
+              <span className="w-8 h-px bg-copper" /> اعرض أصلك
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-3">اعرض أصلك العقاري</h2>
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              زوّدنا ببيانات الأصل وسوف نتواصل معك خلال ثلاثة أيام عمل.
+            </p>
+
+            <form className="grid sm:grid-cols-2 gap-4">
+              {[
+                { label: "الاسم الكامل", placeholder: "اكتب اسمك" },
+                { label: "رقم الجوّال", placeholder: "05xxxxxxxx" },
+                { label: "نوع العقار", placeholder: "اختر نوع الأصل" },
+                { label: "حالة الأصل", placeholder: "اختر حالة الأصل" },
+                { label: "الموقع الجغرافي", placeholder: "أدخل الموقع" },
+                { label: "المساحة (م²)", placeholder: "أدخل المساحة" },
+              ].map((f) => (
+                <div key={f.label}>
+                  <label className="block text-xs text-muted-foreground mb-1.5">{f.label}</label>
+                  <input
+                    placeholder={f.placeholder}
+                    className="w-full h-11 px-4 rounded-md bg-card border border-border text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-copper-deep transition"
+                  />
+                </div>
+              ))}
+
+              <div className="sm:col-span-2">
+                <label className="block text-xs text-muted-foreground mb-1.5">إرفاق ملفات</label>
+                <button type="button" className="w-full h-11 rounded-md border border-dashed border-copper/50 text-sm text-copper-deep hover:bg-copper/5 transition flex items-center justify-center gap-2">
+                  <Plus className="w-4 h-4" /> اختر ملف
+                </button>
+              </div>
+
+              <label className="sm:col-span-2 flex items-center gap-2 text-xs text-muted-foreground">
+                <input type="checkbox" className="accent-copper-deep" />
+                أوافق على سياسة الخصوصية واستخدام بياناتي للتواصل.
+              </label>
+
+              <button className="sm:col-span-2 h-12 rounded-md bg-copper-deep text-primary-foreground hover:bg-copper transition font-medium">
+                إرسال الطلب
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
-    <section id="contact" className="py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-copper/30 bg-gradient-to-bl from-parchment-dark via-parchment to-parchment-dark p-10 md:p-16">
-          <div className="absolute -bottom-10 -left-10 w-80 h-80 rounded-full bg-copper/10 blur-3xl" />
-          <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-copper-deep/10 blur-3xl" />
-          <div className="relative grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="text-xs tracking-[0.3em] text-copper-deep uppercase mb-3">انضم إلى مهابة</div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">
-                هل تمتلك أصلاً عقارياً؟
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                قد يكون أصلك مؤهلاً للتحول إلى مساهمة عقارية أو مشروع استثماري منظم.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
-              <button className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-md bg-copper-deep text-primary-foreground hover:bg-copper transition font-medium">
-                <Plus className="w-4 h-4" /> اعرض أصلك العقاري
-              </button>
-              <button className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-md border border-copper-deep text-copper-deep hover:bg-copper-deep hover:text-primary-foreground transition font-medium">
-                <FileText className="w-4 h-4" /> طلب دراسة عقارية
-              </button>
-            </div>
-          </div>
+    <section id="contact" className="relative py-32 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <img src={ctaBanner} alt="" loading="lazy" width={1920} height={512} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
+      </div>
+      <div className="mx-auto max-w-5xl px-6 text-center">
+        <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] text-copper-deep uppercase mb-4">
+          <span className="w-8 h-px bg-copper" /> انضم إلى مهابة <span className="w-8 h-px bg-copper" />
+        </div>
+        <h2 className="font-display text-5xl md:text-6xl font-bold leading-tight mb-5">
+          هل تمتلك أصلاً <span className="text-copper-deep">عقارياً؟</span>
+        </h2>
+        <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
+          قد يكون أصلك مؤهلاً للتحول إلى مساهمة عقارية أو مشروع استثماري منظم وفق أعلى معايير الحوكمة.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <button className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-md bg-copper-deep text-primary-foreground hover:bg-copper transition font-medium shadow-lg shadow-copper/20">
+            <Plus className="w-4 h-4" /> اعرض أصلك العقاري
+          </button>
+          <button className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-md border border-copper-deep bg-card/80 backdrop-blur text-copper-deep hover:bg-copper-deep hover:text-primary-foreground transition font-medium">
+            <FileText className="w-4 h-4" /> طلب دراسة عقارية
+          </button>
         </div>
       </div>
     </section>
@@ -547,8 +616,12 @@ function CTA() {
 function Footer() {
   return (
     <footer className="bg-ink text-ink-foreground pt-16 pb-8 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.07] mix-blend-screen">
+        <img src={footerBg} alt="" loading="lazy" width={1920} height={512} className="w-full h-full object-cover" />
+      </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent" />
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 relative">
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
