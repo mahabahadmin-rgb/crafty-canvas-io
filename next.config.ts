@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { createRequire } from "node:module";
 
 const nextConfig: NextConfig = {
+  typedRoutes: false,
   images: {
     formats: ["image/avif", "image/webp"],
   },

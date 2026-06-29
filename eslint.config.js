@@ -5,7 +5,7 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
-    ignores: ["node_modules/**", ".next/**", ".npm-cache/**", "tmp/**", "dist/**", ".output/**", ".vinxi/**", "src/**", "vite.config.ts"],
+    ignores: ["node_modules/**", ".next/**", ".open-next/**", ".wrangler/**", ".npm-cache/**", "tmp/**", "dist/**", ".output/**", ".vinxi/**", "src/**", "vite.config.ts"],
   },
   js.configs.recommended,
   {

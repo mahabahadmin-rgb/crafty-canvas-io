@@ -84,6 +84,7 @@ type PersistResult = {
   persisted: boolean;
   id?: string;
   reference?: string;
+  message?: string;
 };
 
 type VerificationPayloadValue = string | number | boolean | null | undefined;
