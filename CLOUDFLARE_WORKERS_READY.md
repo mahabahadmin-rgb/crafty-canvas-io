@@ -35,7 +35,10 @@ The app is configured for Cloudflare Workers via OpenNext.
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (or set as a GitHub variable)
    - `NEXT_PUBLIC_SITE_URL` (or set as a GitHub variable)
 2. Push to `main`.
-3. Workflow runs `bun run deploy` (`opennextjs-cloudflare build` + `opennextjs-cloudflare deploy`).
+3. Push behavior:
+   - `main` and `master` branch: `bun run deploy` (`opennextjs-cloudflare build` + `opennextjs-cloudflare deploy`).
+   - Other branches: `bun run upload` for preview-style branch deployments.
+4. You can manually trigger the workflow from GitHub Actions -> Run workflow.
 
 You can also use Cloudflare Git integration directly and point build command to:
 
@@ -44,6 +47,17 @@ bun install --frozen-lockfile && bun run deploy
 ```
 
 In that case set the same vars/secrets in the project environment there.
+
+### Cloudflare Build & Deploy UI (alternative)
+
+If you are using Cloudflare's dashboard auto-deploy instead of GitHub Actions, use:
+- Production branch: `main`
+- Build command: `bun install --frozen-lockfile && bun run build`
+- Deploy command: `bun run deploy`
+- Non-production branch deploy command: `bun run upload`
+- Deploy environment variables: same list as above.
+
+If branch auto-deploy is enabled for non-production, every push to non-production branches will run `bun run upload`.
 
 ## 3) Local worker-style preview
 

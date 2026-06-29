@@ -2,7 +2,8 @@ name: Deploy to Cloudflare Workers
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "**"
   workflow_dispatch:
 
 jobs:
@@ -28,6 +29,9 @@ jobs:
         run: bun install --frozen-lockfile --no-cache
 
       - name: Deploy Next.js app to Workers
+        # main / master -> production deploy
+        # other branches -> preview upload
+        id: deploy-step
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
@@ -38,7 +42,12 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           MAHABAH_DEV_ADMIN_EMAIL: ${{ secrets.MAHABAH_DEV_ADMIN_EMAIL }}
           MAHABAH_DEV_ADMIN_PASSWORD: ${{ secrets.MAHABAH_DEV_ADMIN_PASSWORD }}
-        run: bun run deploy
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == "main" || "${GITHUB_REF_NAME}" == "master" ]]; then
+            bun run deploy
+          else
+            bun run upload
+          fi
 
       - name: Upload sourcemaps (optional)
         if: always()
