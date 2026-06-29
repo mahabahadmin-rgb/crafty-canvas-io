@@ -126,7 +126,7 @@ function SidebarContent({
   return (
     <div
       className={cn(
-        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-l",
+        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-s",
         collapsed ? "px-3" : "px-5",
       )}
       style={{ borderColor: sidebarBorderColor }}
@@ -219,7 +219,7 @@ function SidebarContent({
                       <span
                         className={cn(
                           "grid h-5 min-w-5 shrink-0 place-items-center rounded-full mb-bg-red px-1.5 text-[11px] font-extrabold text-white",
-                          collapsed ? "absolute -left-1 -top-1" : "",
+                          collapsed ? "absolute -end-1 -top-1" : "",
                         )}
                       >
                         {item.badge}
@@ -332,7 +332,7 @@ function _IndividualTopHeader({ ownerName, onMenu }: { ownerName: string; onMenu
           ))}
         </nav>
 
-        <div className="mr-auto flex items-center gap-4 mb-text-ink">
+        <div className="ms-auto flex items-center gap-4 mb-text-ink">
           <Link href={dashboardHref("individual", "notifications")} className="relative grid h-11 w-11 place-items-center rounded-full bg-white transition hover:mb-bg-warm" aria-label="الإشعارات">
             <Bell className="h-6 w-6" />
             <span className="absolute -right-1 top-0 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
@@ -383,7 +383,7 @@ function IndividualSidebarContent({
           <BrandLogo height={64} priority />
         )}
         <div className="mt-3 flex items-center justify-center gap-3">
-          <div className="text-left">
+          <div className="text-start">
             <p className="text-[15px] font-extrabold leading-6 mb-text-ink">{communicationMode ? "أحمد عبدالله" : "بندر محمد"}</p>
             <p className="mt-0.5 flex items-center justify-end gap-2 text-xs font-bold mb-text-subtle">
               <span>{communicationMode ? "مستثمر فرد." : "عضو نشط"}</span>
@@ -474,36 +474,33 @@ function IndividualDashboardShell({ role, nav, activePath, ownerName, children }
   return (
     <SidebarProvider>
       <div className="min-h-screen bg-white mb-text-ink" dir="rtl">
-        <div className="mx-auto flex min-h-screen w-full max-w-[1536px]">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
-          </DashboardUiSidebar>
+        <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
-              <div className="mb-5 flex min-h-11 items-center justify-between">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
-                <div className="hidden lg:block" />
-                <div className="mr-auto flex items-center gap-3" dir="ltr">
-                  <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
-                    <Bell className="h-5 w-5" />
-                    <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
-                  </Link>
-                  <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الرسائل">
-                    <Mail className="h-5 w-5" />
-                  </Link>
-                  <Link href={dashboardHref(role, "personal-profile")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label={ownerName}>
-                    <UserRound className="h-5 w-5" />
-                  </Link>
-                </div>
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 px-4 py-5 lg:px-5">
+            <div className="mb-5 flex min-h-11 items-center">
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy lg:hidden rtl:rotate-180" aria-label="فتح قائمة لوحة التحكم" />
+              <div className="ms-auto flex items-center gap-3">
+                <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
+                  <Bell className="h-5 w-5" />
+                  <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
+                </Link>
+                <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الرسائل">
+                  <Mail className="h-5 w-5" />
+                </Link>
+                <Link href={dashboardHref(role, "personal-profile")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label={ownerName}>
+                  <UserRound className="h-5 w-5" />
+                </Link>
               </div>
+            </div>
 
-              <div key={pathname} className="mx-auto max-w-[1185px] animate-[dashIn_260ms_ease-out]">
-                {children}
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
+            <div key={pathname} className="mx-auto max-w-[1185px] animate-[dashIn_260ms_ease-out]">
+              {children}
+            </div>
+          </main>
+        </SidebarInset>
 
       <style jsx global>{`
         @keyframes dashIn {
@@ -595,7 +592,7 @@ function BusinessSidebarContent({
                     <span className="text-[18px] font-extrabold leading-7">{group.title}</span>
                     <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-6 w-6", profileMode ? "text-[#A7815E]" : "mb-text-navy")} />
                   </div>
-                  <div className="grid gap-0.5 pr-6">
+                  <div className="grid gap-0.5 ps-6">
                     {group.items.map((item) => {
                       const active = item.path === activePath;
                       return (
@@ -652,63 +649,60 @@ function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: 
     <SidebarProvider>
       <div className="min-h-screen bg-white mb-text-navy" dir="rtl">
         <style dangerouslySetInnerHTML={{ __html: dashboardBusinessCss }} />
-        <div className="mx-auto flex min-h-screen w-full max-w-[1536px]">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
-          </DashboardUiSidebar>
+        <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
-              <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
-                <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
-                <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
-                  {profileMode ? (
-                    <>
-                      <div className="ml-5 hidden items-center gap-3 border-l border-[#E8DED4] pl-5 lg:flex">
-                        <div className="text-right">
-                          <p className="text-[15px] font-extrabold leading-6 text-[#1D1916]">أحمد عبدالله</p>
-                          <p className="mt-0.5 text-xs font-bold text-[#1D1916]">مستثمر فرد.</p>
-                        </div>
-                        <div className="grid h-12 w-12 place-items-center rounded-full bg-[#F4F0EC] text-[#1D1916]">
-                          <UserRound className="h-7 w-7" />
-                        </div>
-                        <ChevronLeft className="h-4 w-4 -rotate-90 text-[#1D1916]" />
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 px-4 py-4 lg:px-5">
+            <div className="mb-4 flex min-h-12 items-center">
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy lg:hidden rtl:rotate-180" aria-label="فتح قائمة لوحة التحكم" />
+              <div className={cn("ms-auto flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
+                {profileMode ? (
+                  <>
+                    <div className="ms-5 hidden items-center gap-3 border-s border-[#E8DED4] ps-5 lg:flex">
+                    <div className="text-end">
+                        <p className="text-[15px] font-extrabold leading-6 text-[#1D1916]">أحمد عبدالله</p>
+                        <p className="mt-0.5 text-xs font-bold text-[#1D1916]">مستثمر فرد.</p>
                       </div>
-                      <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الإشعارات">
-                        <Bell className="h-5 w-5" />
-                        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
-                      </Link>
-                      <Link href={dashboardHref(role, "messages")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الرسائل">
-                        <Mail className="h-5 w-5" />
-                        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
-                      </Link>
-                      <Link href={dashboardHref(role, "profile")} className="grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الملف الشخصي">
-                        <UserRound className="h-5 w-5" />
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      <Link href={dashboardHref(role, "profile")} className="grid h-12 w-12 place-items-center rounded-full border mb-border-page text-[18px] font-extrabold" aria-label={ownerName}>
-                        م
-                      </Link>
-                      <ChevronLeft className="h-4 w-4 -rotate-90 fill-mb-navy" />
-                      <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center" aria-label="الرسائل">
-                        <Mail className="h-7 w-7 stroke-[1.8]" />
-                      </Link>
-                      <Link href={dashboardHref(role, "support")} className="grid h-11 w-11 place-items-center" aria-label="الدعم الفني">
-                        <Headphones className="h-7 w-7 stroke-[1.8]" />
-                      </Link>
-                    </>
-                  )}
-                </div>
+                      <div className="grid h-12 w-12 place-items-center rounded-full bg-[#F4F0EC] text-[#1D1916]">
+                        <UserRound className="h-7 w-7" />
+                      </div>
+                      <ChevronLeft className="h-4 w-4 -rotate-90 text-[#1D1916]" />
+                    </div>
+                    <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الإشعارات">
+                      <Bell className="h-5 w-5" />
+                      <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
+                    </Link>
+                    <Link href={dashboardHref(role, "messages")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الرسائل">
+                      <Mail className="h-5 w-5" />
+                      <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
+                    </Link>
+                    <Link href={dashboardHref(role, "profile")} className="grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الملف الشخصي">
+                      <UserRound className="h-5 w-5" />
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href={dashboardHref(role, "profile")} className="grid h-12 w-12 place-items-center rounded-full border mb-border-page text-[18px] font-extrabold" aria-label={ownerName}>
+                      م
+                    </Link>
+                    <ChevronLeft className="h-4 w-4 -rotate-90 fill-mb-navy" />
+                    <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center" aria-label="الرسائل">
+                      <Mail className="h-7 w-7 stroke-[1.8]" />
+                    </Link>
+                    <Link href={dashboardHref(role, "support")} className="grid h-11 w-11 place-items-center" aria-label="الدعم الفني">
+                      <Headphones className="h-7 w-7 stroke-[1.8]" />
+                    </Link>
+                  </>
+                )}
               </div>
-              <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
-                {children}
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
+            </div>
+            <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
+              {children}
+            </div>
+          </main>
+        </SidebarInset>
 
         <style jsx global>{`
           @keyframes dashIn {
@@ -728,23 +722,23 @@ function LegacyDashboardShell({ role, nav, activePath, children }: { role: Dashb
     <SidebarProvider>
       <div className="min-h-screen mb-bg-cream text-ink" dir="rtl">
         <div className="fixed inset-0 -z-10 mb-legacy-backdrop" />
-        <div className="mx-auto flex min-h-screen w-full max-w-[1500px] gap-0 lg:px-4">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
-          </DashboardUiSidebar>
+        <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-4 sm:px-6 lg:px-7">
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 px-4 py-4 sm:px-6 lg:px-7">
+            <div className="mx-auto w-full max-w-[1500px]">
               <div className="mb-4 flex min-h-20 items-center justify-between rounded-2xl border border-line bg-white/86 px-4 mb-shadow-legacy-top backdrop-blur lg:hidden">
                 <BrandLogo height={70} />
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-card lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-card lg:hidden rtl:rotate-180" aria-label="فتح قائمة لوحة التحكم" />
               </div>
               <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
                 {children}
               </div>
-            </main>
-          </SidebarInset>
-        </div>
+            </div>
+          </main>
+        </SidebarInset>
 
         <style jsx global>{`
           @keyframes dashIn {
