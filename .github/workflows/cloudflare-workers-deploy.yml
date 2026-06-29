@@ -21,7 +21,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: bun install --frozen-lockfile --no-cache
 
       - name: Deploy Next.js app to Workers
         env:
@@ -34,7 +34,7 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           MAHABAH_DEV_ADMIN_EMAIL: ${{ secrets.MAHABAH_DEV_ADMIN_EMAIL }}
           MAHABAH_DEV_ADMIN_PASSWORD: ${{ secrets.MAHABAH_DEV_ADMIN_PASSWORD }}
-        run: npm run deploy
+        run: bun run deploy
 
       - name: Upload sourcemaps (optional)
         if: always()

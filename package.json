@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "build": "opennextjs-cloudflare build",
+    "build:next": "next build",
+    "preview": "opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
@@ -55,6 +56,6 @@
     "playwright": "^1.60.0",
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
-    "wrangler": "^3.99.0"
+    "wrangler": "^4.86.0"
   }
 }

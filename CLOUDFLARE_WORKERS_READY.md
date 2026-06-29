@@ -35,12 +35,12 @@ The app is configured for Cloudflare Workers via OpenNext.
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (or set as a GitHub variable)
    - `NEXT_PUBLIC_SITE_URL` (or set as a GitHub variable)
 2. Push to `main`.
-3. Workflow runs `npm run deploy` (`opennextjs-cloudflare build` + `opennextjs-cloudflare deploy`).
+3. Workflow runs `bun run deploy` (`opennextjs-cloudflare build` + `opennextjs-cloudflare deploy`).
 
 You can also use Cloudflare Git integration directly and point build command to:
 
 ```bash
-npm install && npm run deploy
+bun install --frozen-lockfile && bun run deploy
 ```
 
 In that case set the same vars/secrets in the project environment there.
@@ -49,7 +49,7 @@ In that case set the same vars/secrets in the project environment there.
 
 Use:
 ```bash
-npm run preview
+bun run preview
 ```
 
 This builds and runs your app in the Workers runtime locally.
@@ -57,11 +57,12 @@ This builds and runs your app in the Workers runtime locally.
 ## 4) Useful commands
 
 ```bash
-npm run preview
-npm run deploy
-npm run upload
-npm run cf:typegen
-npm run cf:typegen && npm run verify:backend
+bun install --frozen-lockfile
+bun run build
+bun run deploy
+bun run upload
+bun run cf:typegen
+bun run verify:backend
 ```
 
 ## 5) Note on repo assets
