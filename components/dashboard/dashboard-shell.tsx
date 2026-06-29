@@ -126,7 +126,7 @@ function SidebarContent({
   return (
     <div
       className={cn(
-        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-l",
+        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-s",
         collapsed ? "px-3" : "px-5",
       )}
       style={{ borderColor: sidebarBorderColor }}
@@ -140,7 +140,7 @@ function SidebarContent({
           title={collapsed ? "توسيع الشريط الجانبي" : "طي الشريط الجانبي"}
           className="dashboard-collapse-toggle absolute z-20 hidden h-9 w-9 place-items-center rounded-full border bg-white mb-text-brown transition lg:grid"
           style={{
-            left: "-18px",
+            insetInlineStart: "-18px",
             top: "28px",
             borderColor: sidebarBorderColor,
             backgroundColor: "#fffdf9",
@@ -148,7 +148,7 @@ function SidebarContent({
             outline: "none",
           }}
         >
-          {collapsed ? <ChevronLeft className="h-[18px] w-[18px]" /> : <ChevronRight className="h-[18px] w-[18px]" />}
+          {collapsed ? <ChevronLeft className="h-[18px] w-[18px] rtl:rotate-180" /> : <ChevronRight className="h-[18px] w-[18px] rtl:rotate-180" />}
         </button>
       ) : null}
 
@@ -219,7 +219,7 @@ function SidebarContent({
                       <span
                         className={cn(
                           "grid h-5 min-w-5 shrink-0 place-items-center rounded-full mb-bg-red px-1.5 text-[11px] font-extrabold text-white",
-                          collapsed ? "absolute -left-1 -top-1" : "",
+                          collapsed ? "absolute -end-1 -top-1" : "",
                         )}
                       >
                         {item.badge}
@@ -332,10 +332,10 @@ function _IndividualTopHeader({ ownerName, onMenu }: { ownerName: string; onMenu
           ))}
         </nav>
 
-        <div className="mr-auto flex items-center gap-4 mb-text-ink">
+        <div className="ms-auto flex items-center gap-4 mb-text-ink">
           <Link href={dashboardHref("individual", "notifications")} className="relative grid h-11 w-11 place-items-center rounded-full bg-white transition hover:mb-bg-warm" aria-label="الإشعارات">
             <Bell className="h-6 w-6" />
-            <span className="absolute -right-1 top-0 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
+            <span className="absolute -end-1 top-0 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
           </Link>
           <Link href={dashboardHref("individual", "messages")} className="hidden h-11 w-11 place-items-center rounded-full bg-white transition hover:mb-bg-warm sm:grid" aria-label="الرسائل">
             <Mail className="h-6 w-6" />
@@ -383,7 +383,7 @@ function IndividualSidebarContent({
           <BrandLogo height={64} priority />
         )}
         <div className="mt-3 flex items-center justify-center gap-3">
-          <div className="text-left">
+          <div className="text-right">
             <p className="text-[15px] font-extrabold leading-6 mb-text-ink">{communicationMode ? "أحمد عبدالله" : "بندر محمد"}</p>
             <p className="mt-0.5 flex items-center justify-end gap-2 text-xs font-bold mb-text-subtle">
               <span>{communicationMode ? "مستثمر فرد." : "عضو نشط"}</span>
@@ -482,12 +482,12 @@ function IndividualDashboardShell({ role, nav, activePath, ownerName, children }
           <SidebarInset className="min-w-0">
             <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
               <div className="mb-5 flex min-h-11 items-center justify-between">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
                 <div className="hidden lg:block" />
-                <div className="mr-auto flex items-center gap-3" dir="ltr">
+                <div className="ms-auto flex items-center gap-3">
                   <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
                     <Bell className="h-5 w-5" />
-                    <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
+                    <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
                   </Link>
                   <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الرسائل">
                     <Mail className="h-5 w-5" />
@@ -595,7 +595,7 @@ function BusinessSidebarContent({
                     <span className="text-[18px] font-extrabold leading-7">{group.title}</span>
                     <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-6 w-6", profileMode ? "text-[#A7815E]" : "mb-text-navy")} />
                   </div>
-                  <div className="grid gap-0.5 pr-6">
+                  <div className="grid gap-0.5 ps-6">
                     {group.items.map((item) => {
                       const active = item.path === activePath;
                       return (
@@ -660,12 +660,12 @@ function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: 
           <SidebarInset className="min-w-0">
             <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
               <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
                 <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
                 <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
                   {profileMode ? (
                     <>
-                      <div className="ml-5 hidden items-center gap-3 border-l border-[#E8DED4] pl-5 lg:flex">
+                      <div className="me-5 hidden items-center gap-3 border-s border-[#E8DED4] ps-5 lg:flex">
                         <div className="text-right">
                           <p className="text-[15px] font-extrabold leading-6 text-[#1D1916]">أحمد عبدالله</p>
                           <p className="mt-0.5 text-xs font-bold text-[#1D1916]">مستثمر فرد.</p>
@@ -677,11 +677,11 @@ function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: 
                       </div>
                       <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الإشعارات">
                         <Bell className="h-5 w-5" />
-                        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
+                        <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
                       </Link>
                       <Link href={dashboardHref(role, "messages")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الرسائل">
                         <Mail className="h-5 w-5" />
-                        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
+                        <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
                       </Link>
                       <Link href={dashboardHref(role, "profile")} className="grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الملف الشخصي">
                         <UserRound className="h-5 w-5" />
@@ -737,7 +737,7 @@ function LegacyDashboardShell({ role, nav, activePath, children }: { role: Dashb
             <main className="min-w-0 flex-1 px-4 py-4 sm:px-6 lg:px-7">
               <div className="mb-4 flex min-h-20 items-center justify-between rounded-2xl border border-line bg-white/86 px-4 mb-shadow-legacy-top backdrop-blur lg:hidden">
                 <BrandLogo height={70} />
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-card lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
               </div>
               <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
                 {children}
