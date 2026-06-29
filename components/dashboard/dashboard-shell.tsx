@@ -11,6 +11,7 @@ import {
   Camera,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   CircleDollarSign,
   Clock3,
   ClipboardList,
@@ -49,6 +50,7 @@ import { dashboardHref, type DashboardNavGroup, type DashboardRole } from "@/lib
 import { dashboardBusinessCss } from "@/lib/styles/dashboard-business-css";
 import {
   Sidebar as DashboardUiSidebar,
+  SidebarRail,
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
@@ -112,6 +114,9 @@ function SidebarContent({
   onNavigate?: () => void;
 }) {
   const [tooltip, setTooltip] = useState<{ label: string; top: number; right: number } | null>(null);
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(nav.map((group, groupIndex) => [`${group.title || "root"}-${groupIndex}`, true])),
+  );
 
   const showCollapsedTooltip = (label: string, element: HTMLElement) => {
     if (!collapsed) return;
@@ -171,66 +176,82 @@ function SidebarContent({
         </button>
       </div>
 
-      <nav className="grid gap-0" aria-label="تنقل لوحة التحكم">
-        {nav.map((group) => (
-          <section key={group.title} className="border-b py-4 first:pt-0 last:border-b-0" style={{ borderColor: sidebarBorderColor }}>
-            {collapsed ? (
-              <div className="mx-auto mb-2 h-px w-8 rounded-full mb-bg-divider" aria-hidden="true" />
-            ) : (
-              <h2 className="mb-2 px-2 font-display text-[16px] font-extrabold leading-7 text-ink">{group.title}</h2>
-            )}
-            <div className="grid gap-1">
-              {group.items.map((item) => {
-                const active = item.path === activePath;
-                return (
-                  <Link
-                    key={`${group.title}-${item.path}`}
-                    href={dashboardHref(role, item.path)}
-                    onClick={onNavigate}
-                    aria-current={active ? "page" : undefined}
-                    style={
-                      active
-                        ? {
-                            backgroundColor: "#f4ebe5",
-                            color: "#8F6B4C",
-                            boxShadow: "inset 0 0 0 1px rgba(232, 210, 195, 0.9)",
-                          }
-                        : undefined
-                    }
-                    className={cn(
-                      "dashboard-sidebar-link group relative flex min-h-11 items-center rounded-xl text-[13px] font-bold leading-none transition",
-                      collapsed ? "justify-center px-0" : "justify-between px-3",
-                      active
-                        ? "mb-bg-legacy-active mb-text-legacy-accent mb-shadow-inset"
-                        : "text-navy hover:mb-bg-legacy hover:mb-text-legacy-accent",
-                    )}
-                    title={collapsed ? item.label : undefined}
-                    aria-label={item.label}
-                    onMouseEnter={(event) => showCollapsedTooltip(item.label, event.currentTarget)}
-                    onMouseLeave={() => setTooltip(null)}
-                    onFocus={(event) => showCollapsedTooltip(item.label, event.currentTarget)}
-                    onBlur={() => setTooltip(null)}
-                  >
-                    <span className={cn("flex min-w-0 items-center", collapsed ? "justify-center" : "gap-3")}>
-                      <Icon name={item.icon} className="h-[18px] w-[18px] shrink-0" />
-                      <span className={cn("truncate whitespace-nowrap", collapsed ? "sr-only" : "")}>{item.label}</span>
-                    </span>
-                    {item.badge ? (
-                      <span
+      <nav className="grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل لوحة التحكم">
+        {nav.map((group, groupIndex) => {
+          const groupKey = `${group.title || "root"}-${groupIndex}`;
+          const isExpanded = collapsed ? true : expandedGroups[groupKey] ?? true;
+
+          return (
+            <section key={groupKey} className="border-b py-4 first:pt-0 last:border-b-0" style={{ borderColor: sidebarBorderColor }}>
+              {collapsed ? (
+                <div className="mx-auto mb-2 h-px w-8 rounded-full mb-bg-divider" aria-hidden="true" />
+              ) : group.title ? (
+                <button
+                  type="button"
+                  onClick={() => setExpandedGroups((state) => ({ ...state, [groupKey]: !isExpanded }))}
+                  className="mb-2 flex min-h-10 w-full items-center justify-between rounded-lg px-2 py-1"
+                  aria-expanded={isExpanded}
+                  title={group.title}
+                >
+                  <span className="font-display text-[16px] font-extrabold leading-7 text-ink">{group.title}</span>
+                  <ChevronDown className={cn("h-4 w-4 transition-transform", isExpanded ? "rotate-180" : "")} />
+                </button>
+              ) : null}
+              {(collapsed || isExpanded) && (
+                <div className="grid gap-1">
+                  {group.items.map((item) => {
+                    const active = item.path === activePath;
+                    return (
+                      <Link
+                        key={`${group.title}-${item.path}`}
+                        href={dashboardHref(role, item.path)}
+                        onClick={onNavigate}
+                        aria-current={active ? "page" : undefined}
+                        style={
+                          active
+                            ? {
+                                backgroundColor: "#f4ebe5",
+                                color: "#8F6B4C",
+                                boxShadow: "inset 0 0 0 1px rgba(232, 210, 195, 0.9)",
+                              }
+                            : undefined
+                        }
                         className={cn(
-                          "grid h-5 min-w-5 shrink-0 place-items-center rounded-full mb-bg-red px-1.5 text-[11px] font-extrabold text-white",
-                          collapsed ? "absolute -end-1 -top-1" : "",
+                          "dashboard-sidebar-link group relative flex min-h-11 items-center rounded-xl text-[13px] font-bold leading-none transition",
+                          collapsed ? "justify-center px-0" : "justify-between px-3",
+                          active
+                            ? "mb-bg-legacy-active mb-text-legacy-accent mb-shadow-inset"
+                            : "text-navy hover:mb-bg-legacy hover:mb-text-legacy-accent",
                         )}
+                        title={collapsed ? item.label : undefined}
+                        aria-label={item.label}
+                        onMouseEnter={(event) => showCollapsedTooltip(item.label, event.currentTarget)}
+                        onMouseLeave={() => setTooltip(null)}
+                        onFocus={(event) => showCollapsedTooltip(item.label, event.currentTarget)}
+                        onBlur={() => setTooltip(null)}
                       >
-                        {item.badge}
-                      </span>
-                    ) : null}
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ))}
+                        <span className={cn("flex min-w-0 items-center", collapsed ? "justify-center" : "gap-3")}>
+                          <Icon name={item.icon} className="h-[18px] w-[18px] shrink-0" />
+                          <span className={cn("truncate whitespace-nowrap", collapsed ? "sr-only" : "")}>{item.label}</span>
+                        </span>
+                        {item.badge ? (
+                          <span
+                            className={cn(
+                              "grid h-5 min-w-5 shrink-0 place-items-center rounded-full mb-bg-red px-1.5 text-[11px] font-extrabold text-white",
+                              collapsed ? "absolute -end-1 -top-1" : "",
+                            )}
+                          >
+                            {item.badge}
+                          </span>
+                        ) : null}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+          );
+        })}
       </nav>
 
       <div className="mt-auto grid gap-2 pt-5">
@@ -273,10 +294,14 @@ function DashboardSidebarPanel({
   role,
   nav,
   activePath,
+  collapsed = false,
+  onToggleCollapsed,
 }: {
   role: DashboardRole;
   nav: DashboardNavGroup[];
   activePath: string;
+  collapsed?: boolean;
+  onToggleCollapsed?: () => void;
 }) {
   const { isMobile, setOpenMobile } = useSidebar();
 
@@ -290,6 +315,8 @@ function DashboardSidebarPanel({
         role={role}
         nav={nav}
         activePath={activePath}
+        collapsed={collapsed}
+        onToggleCollapsed={onToggleCollapsed}
         onNavigate={handleNavigate}
       />
     );
@@ -301,6 +328,8 @@ function DashboardSidebarPanel({
         role={role}
         nav={nav}
         activePath={activePath}
+        collapsed={collapsed}
+        onToggleCollapsed={onToggleCollapsed}
         onNavigate={handleNavigate}
       />
     );
@@ -311,6 +340,8 @@ function DashboardSidebarPanel({
       role={role}
       nav={nav}
       activePath={activePath}
+      collapsed={collapsed}
+      onToggleCollapsed={onToggleCollapsed}
       onNavigate={handleNavigate}
     />
   );
@@ -361,29 +392,53 @@ function IndividualSidebarContent({
   role,
   nav,
   activePath,
+  collapsed = false,
   onNavigate,
+  onToggleCollapsed,
 }: {
   role: DashboardRole;
   nav: DashboardNavGroup[];
   activePath: string;
+  collapsed?: boolean;
   onNavigate?: () => void;
+  onToggleCollapsed?: () => void;
 }) {
   const communicationMode = ["messages", "support", "personal-profile", "verification"].includes(activePath);
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(nav.map((group, groupIndex) => [`${group.title || "root"}-${groupIndex}`, true])),
+  );
+  const textClass = collapsed ? "sr-only" : "";
 
   return (
-    <div className={cn("relative flex min-h-full flex-col overflow-hidden px-5 py-3 text-[14px] mb-shadow-shell", communicationMode ? "bg-[#1D1916] text-white" : "bg-white")}>
+    <div className={cn("relative flex min-h-0 flex-1 flex-col overflow-hidden py-3 text-[14px] mb-shadow-shell", communicationMode ? "bg-[#1D1916] text-white" : "bg-white", collapsed ? "px-3" : "px-5")}>
       <div className={cn("relative z-10 mb-3 border-b pb-3 text-center", communicationMode ? "-mx-5 -mt-3 bg-white px-5 pt-4 mb-border-individual-line" : "mb-border-individual-line")}>
         {communicationMode ? (
-          <Link href={dashboardHref(role)} className="mx-auto block w-fit text-center" aria-label="مهابة">
+          <Link href={dashboardHref(role)} className={cn("mx-auto block w-fit text-center", collapsed ? "hidden" : "")} aria-label="مهابة">
             <strong className="block font-display text-4xl font-extrabold leading-none text-[#1D1916]">مهابة</strong>
             <span className="mt-1 block text-[10px] font-bold tracking-[0.28em] text-[#A7815E]">MAHABAH</span>
             <span className="mt-1 block text-[10px] font-bold text-[#1D1916]">إدارة المساهمات العقارية</span>
           </Link>
         ) : (
-          <BrandLogo height={64} priority />
+          <>
+            <div className={cn("mx-auto grid h-11 w-11 place-items-center rounded-full border mb-border-individual-soft text-[18px] font-extrabold", collapsed ? "" : "hidden")} aria-hidden="true">
+              م
+            </div>
+            {!collapsed ? <BrandLogo height={64} priority /> : null}
+          </>
         )}
+        {onToggleCollapsed ? (
+          <button
+            type="button"
+            onClick={onToggleCollapsed}
+            aria-expanded={!collapsed}
+            aria-label={collapsed ? "توسيع الشريط الجانبي" : "طي الشريط الجانبي"}
+            className={cn("absolute inset-inline-start-4 top-3 grid h-9 w-9 place-items-center rounded-full border border-line bg-white", collapsed ? "text-navy" : "text-navy")}
+          >
+            {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4 rtl:rotate-180" />}
+          </button>
+        ) : null}
         <div className="mt-3 flex items-center justify-center gap-3">
-          <div className="text-right">
+          <div className={cn("text-right", textClass)}>
             <p className="text-[15px] font-extrabold leading-6 mb-text-ink">{communicationMode ? "أحمد عبدالله" : "بندر محمد"}</p>
             <p className="mt-0.5 flex items-center justify-end gap-2 text-xs font-bold mb-text-subtle">
               <span>{communicationMode ? "مستثمر فرد." : "عضو نشط"}</span>
@@ -396,53 +451,65 @@ function IndividualSidebarContent({
         </div>
       </div>
 
-      <nav className="relative z-10 grid gap-0" aria-label="تنقل حساب الأفراد">
-        {nav.map((group, groupIndex) => (
-          <section
-            key={`${group.title || "root"}-${groupIndex}`}
-            className={cn("border-b py-1 last:border-b-0", !group.title ? "py-1" : "", communicationMode ? "border-white/10" : "mb-border-individual-line")}
-          >
-            {group.title ? (
-              <div className={cn("flex min-h-9 items-center justify-between rounded-lg px-3", communicationMode ? "text-white" : "mb-text-ink")}>
-                <span className="flex items-center gap-3 font-display text-[15px] font-extrabold">
-                  <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-[18px] w-[18px]", communicationMode ? "text-[#A7815E]" : "mb-text-personal-accent")} />
-                  {group.title}
-                </span>
-                <ChevronLeft className={cn("h-3.5 w-3.5 -rotate-90", communicationMode ? "text-[#A7815E]" : "mb-text-ink")} />
-              </div>
-            ) : null}
+      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل حساب الأفراد">
+        {nav.map((group, groupIndex) => {
+          const groupKey = `${group.title || "root"}-${groupIndex}`;
+          const isExpanded = expandedGroups[groupKey] ?? true;
 
-            <div className="grid gap-1">
-              {group.items.map((item) => {
-                const active = item.path === activePath || (activePath === "verification" && item.path === "personal-profile");
-                return (
-                  <Link
-                    key={`${group.title}-${item.path}-${item.label}`}
-                    href={dashboardHref(role, item.path)}
-                    onClick={onNavigate}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(
-                      "flex min-h-7 items-center justify-between rounded-lg px-4 text-[14px] font-bold transition",
-                      communicationMode
-                        ? active
-                          ? "bg-white/8 text-[#D18A42]"
-                          : "text-white/82 hover:bg-white/6 hover:text-[#D18A42]"
-                        : active
-                          ? "mb-bg-personal-active mb-text-personal-accent"
-                          : "mb-text-ink hover:mb-bg-personal hover:mb-text-personal-accent",
-                    )}
-                  >
-                    <span className="flex items-center gap-3">
-                      <Icon name={item.icon} className={cn("h-4 w-4", communicationMode ? "text-[#A7815E]" : "mb-text-personal-accent")} />
-                      {item.label}
-                    </span>
-                    {item.badge ? <span className="grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1.5 text-[11px] font-extrabold text-white">{item.badge}</span> : null}
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ))}
+          return (
+            <section
+              key={groupKey}
+              className={cn("border-b py-1 last:border-b-0", !group.title ? "py-1" : "", communicationMode ? "border-white/10" : "mb-border-individual-line")}
+            >
+              {group.title ? (
+                <button
+                  type="button"
+                  onClick={() => setExpandedGroups((state) => ({ ...state, [groupKey]: !isExpanded }))}
+                  className={cn("flex min-h-9 w-full items-center justify-between rounded-lg px-3", communicationMode ? "text-white" : "mb-text-ink")}
+                  aria-expanded={isExpanded}
+                >
+                  <span className="flex items-center gap-3 font-display text-[15px] font-extrabold">
+                    <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-[18px] w-[18px]", communicationMode ? "text-[#A7815E]" : "mb-text-personal-accent")} />
+                    <span className={textClass}>{group.title}</span>
+                  </span>
+                  <ChevronDown className={cn("h-3.5 w-3.5", communicationMode ? "text-[#A7815E]" : "mb-text-ink", isExpanded ? "rotate-180" : "")} />
+                </button>
+              ) : null}
+
+              {(isExpanded || !group.title) && (
+                <div className="grid gap-1">
+                  {group.items.map((item) => {
+                    const active = item.path === activePath || (activePath === "verification" && item.path === "personal-profile");
+                    return (
+                      <Link
+                        key={`${group.title}-${item.path}-${item.label}`}
+                        href={dashboardHref(role, item.path)}
+                        onClick={onNavigate}
+                        aria-current={active ? "page" : undefined}
+                        className={cn(
+                          "flex min-h-7 items-center justify-between rounded-lg px-4 text-[14px] font-bold transition",
+                          communicationMode
+                            ? active
+                              ? "bg-white/8 text-[#D18A42]"
+                              : "text-white/82 hover:bg-white/6 hover:text-[#D18A42]"
+                            : active
+                              ? "mb-bg-personal-active mb-text-personal-accent"
+                              : "mb-text-ink hover:mb-bg-personal hover:mb-text-personal-accent",
+                        )}
+                      >
+                        <span className="flex items-center gap-3">
+                          <Icon name={item.icon} className={cn("h-4 w-4", communicationMode ? "text-[#A7815E]" : "mb-text-personal-accent")} />
+                          <span className={textClass}>{item.label}</span>
+                        </span>
+                        {item.badge ? <span className="grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1.5 text-[11px] font-extrabold text-white">{item.badge}</span> : null}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+          );
+        })}
       </nav>
 
       {communicationMode ? (
@@ -462,7 +529,7 @@ function IndividualSidebarContent({
         )}
       >
         <LogOut className="h-4 w-4" />
-        تسجيل الخروج
+        <span className={textClass}>تسجيل الخروج</span>
       </Link>
     </div>
   );
@@ -470,19 +537,21 @@ function IndividualSidebarContent({
 
 function IndividualDashboardShell({ role, nav, activePath, ownerName, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; ownerName: string; children: React.ReactNode }) {
   const pathname = usePathname();
+  const { state, toggleSidebar } = useSidebar();
 
   return (
     <SidebarProvider>
       <div className="min-h-screen bg-white mb-text-ink" dir="rtl">
-        <div className="mx-auto flex min-h-screen w-full max-w-[1536px]">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        <div className="flex min-h-screen w-full">
+          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
+            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+            <SidebarRail />
           </DashboardUiSidebar>
 
           <SidebarInset className="min-w-0">
             <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
               <div className="mb-5 flex min-h-11 items-center justify-between">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
                 <div className="hidden lg:block" />
                 <div className="ms-auto flex items-center gap-3">
                   <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
@@ -498,7 +567,7 @@ function IndividualDashboardShell({ role, nav, activePath, ownerName, children }
                 </div>
               </div>
 
-              <div key={pathname} className="mx-auto max-w-[1185px] animate-[dashIn_260ms_ease-out]">
+              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
                 {children}
               </div>
             </main>
@@ -532,36 +601,63 @@ function BusinessSidebarContent({
   role,
   nav,
   activePath,
+  collapsed = false,
   onNavigate,
+  onToggleCollapsed,
 }: {
   role: DashboardRole;
   nav: DashboardNavGroup[];
   activePath: string;
+  collapsed?: boolean;
   onNavigate?: () => void;
+  onToggleCollapsed?: () => void;
 }) {
   const profileMode = activePath === "profile";
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(nav.map((group, groupIndex) => [`${group.title || "root"}-${groupIndex}`, true])),
+  );
+  const textClass = collapsed ? "sr-only" : "";
 
   return (
-    <div className={cn("relative flex min-h-full flex-col overflow-hidden px-5 pb-5 pt-4", profileMode ? "bg-[#1D1916] text-white" : "bg-white mb-text-navy")}>
+    <div className={cn("relative flex min-h-0 flex-1 flex-col overflow-hidden pb-5 pt-4", profileMode ? "bg-[#1D1916] text-white" : "bg-white mb-text-navy", collapsed ? "px-3" : "px-5")}>
       <div className={cn("relative z-10 mb-5 flex items-start justify-between border-b pb-4", profileMode ? "-mx-5 -mt-4 bg-white px-5 pt-4 mb-border-page" : "mb-border-page")}>
         {profileMode ? (
-          <Link href={dashboardHref(role)} className="text-center" aria-label="مهابة">
+          <Link href={dashboardHref(role)} className={cn("text-center", collapsed ? "hidden" : "")} aria-label="مهابة">
             <strong className="block font-display text-4xl font-extrabold leading-none text-[#1D1916]">مهابة</strong>
             <span className="mt-1 block text-[10px] font-bold tracking-[0.28em] text-[#A7815E]">MAHABAH</span>
             <span className="mt-1 block text-[10px] font-bold text-[#1D1916]">إدارة المساهمات العقارية</span>
           </Link>
         ) : (
-          <BrandLogo height={76} priority />
+          <>
+            <div className={cn("grid h-11 w-11 place-items-center rounded-full border bg-white text-[18px] font-extrabold", collapsed ? "" : "hidden")} aria-hidden="true">
+              م
+            </div>
+            {!collapsed ? <BrandLogo height={76} priority /> : null}
+          </>
         )}
         <button type="button" className="grid h-10 w-10 place-items-center mb-text-navy lg:hidden" onClick={onNavigate} aria-label="إغلاق القائمة">
           <X className="h-6 w-6" />
         </button>
+        {onToggleCollapsed ? (
+          <button
+            type="button"
+            onClick={onToggleCollapsed}
+            aria-expanded={!collapsed}
+            aria-label={collapsed ? "توسيع الشريط الجانبي" : "طي الشريط الجانبي"}
+            className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white"
+          >
+            {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4 rtl:rotate-180" />}
+          </button>
+        ) : null}
         <Menu className={cn("mt-3 hidden h-7 w-7 lg:block", profileMode ? "text-[#1D1916]" : "")} />
       </div>
 
-      <nav className="relative z-10 grid gap-0" aria-label="تنقل حساب الأعمال">
+      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل حساب الأعمال">
         {nav.map((group, groupIndex) => {
           const isHomeGroup = groupIndex === 0;
+          const groupKey = `${group.title || "root"}-${groupIndex}`;
+          const isExpanded = expandedGroups[groupKey] ?? true;
+
           return (
             <section key={`${group.title}-${groupIndex}`} className={cn("border-b py-3", profileMode ? "border-white/10" : "mb-border-page", isHomeGroup ? "pb-4 pt-0" : "")}>
               {isHomeGroup ? (
@@ -584,43 +680,53 @@ function BusinessSidebarContent({
                             : "hover:mb-bg-nav",
                       )}
                     >
-                      <span>{item.label}</span>
+                      <span className={textClass}>{item.label}</span>
                       <Icon name={item.icon} className={cn("h-6 w-6", profileMode ? "text-[#A7815E]" : "mb-text-accent-dark")} />
                     </Link>
                   );
                 })
               ) : (
                 <>
-                  <div className={cn("mb-1 flex min-h-9 items-center justify-between px-3", profileMode ? "text-white" : "")}>
-                    <span className="text-[18px] font-extrabold leading-7">{group.title}</span>
-                    <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-6 w-6", profileMode ? "text-[#A7815E]" : "mb-text-navy")} />
-                  </div>
-                  <div className="grid gap-0.5 ps-6">
-                    {group.items.map((item) => {
-                      const active = item.path === activePath;
-                      return (
-                        <Link
-                          key={`${group.title}-${item.path}`}
-                          href={dashboardHref(role, item.path)}
-                          onClick={onNavigate}
-                          aria-current={active ? "page" : undefined}
-                          className={cn(
-                            "flex min-h-8 items-center justify-between rounded-md px-3 text-[14px] font-bold leading-6 transition",
-                            profileMode
-                              ? active
-                                ? "bg-white/8 text-[#D18A42]"
-                                : "text-white/82 hover:bg-white/6 hover:text-[#D18A42]"
-                              : active
-                                ? "mb-bg-nav-active mb-text-accent-dark"
-                                : "mb-text-subtle hover:mb-bg-nav hover:mb-text-accent-dark",
-                          )}
-                        >
-                          <span>{item.label}</span>
-                          <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
-                        </Link>
-                      );
-                    })}
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setExpandedGroups((state) => ({ ...state, [groupKey]: !isExpanded }))}
+                    className={cn("mb-1 flex min-h-9 w-full items-center justify-between px-3", profileMode ? "text-white" : "")}
+                    aria-expanded={isExpanded}
+                  >
+                    <span className={cn("text-[18px] font-extrabold leading-7", textClass)}>{group.title}</span>
+                    <span className={cn("flex items-center gap-2", profileMode ? "text-[#A7815E]" : "mb-text-accent-dark")}>
+                      <Icon name={group.items[0]?.icon ?? "file"} className={cn("h-6 w-6", profileMode ? "text-[#A7815E]" : "mb-text-navy")} />
+                    </span>
+                    <ChevronDown className={cn("h-4 w-4", isExpanded ? "rotate-180" : "")} />
+                  </button>
+                  {isExpanded && (
+                    <div className="grid gap-0.5 ps-6">
+                      {group.items.map((item) => {
+                        const active = item.path === activePath;
+                        return (
+                          <Link
+                            key={`${group.title}-${item.path}`}
+                            href={dashboardHref(role, item.path)}
+                            onClick={onNavigate}
+                            aria-current={active ? "page" : undefined}
+                            className={cn(
+                              "flex min-h-8 items-center justify-between rounded-md px-3 text-[14px] font-bold leading-6 transition",
+                              profileMode
+                                ? active
+                                  ? "bg-white/8 text-[#D18A42]"
+                                  : "text-white/82 hover:bg-white/6 hover:text-[#D18A42]"
+                                : active
+                                  ? "mb-bg-nav-active mb-text-accent-dark"
+                                  : "mb-text-subtle hover:mb-bg-nav hover:mb-text-accent-dark",
+                            )}
+                          >
+                            <span className={textClass}>{item.label}</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
                 </>
               )}
             </section>
@@ -637,7 +743,7 @@ function BusinessSidebarContent({
       ) : null}
 
       <Link href="/api/auth/logout" onClick={onNavigate} className={cn("relative z-10 mt-auto flex min-h-12 items-center justify-between border-t pt-5 text-[18px] font-extrabold", profileMode ? "border-white/10 text-white" : "mb-border-page mb-text-navy")}>
-        <span>تسجيل الخروج</span>
+        <span className={textClass}>تسجيل الخروج</span>
         <LogOut className="h-7 w-7" />
       </Link>
     </div>
@@ -647,20 +753,22 @@ function BusinessSidebarContent({
 function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; ownerName: string; children: React.ReactNode }) {
   const pathname = usePathname();
   const profileMode = activePath === "profile";
+  const { state, toggleSidebar } = useSidebar();
 
   return (
     <SidebarProvider>
       <div className="min-h-screen bg-white mb-text-navy" dir="rtl">
         <style dangerouslySetInnerHTML={{ __html: dashboardBusinessCss }} />
-        <div className="mx-auto flex min-h-screen w-full max-w-[1536px]">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        <div className="flex min-h-screen w-full">
+          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
+            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+            <SidebarRail />
           </DashboardUiSidebar>
 
           <SidebarInset className="min-w-0">
             <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
               <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
                 <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
                 <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
                   {profileMode ? (
@@ -703,7 +811,7 @@ function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: 
                   )}
                 </div>
               </div>
-              <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
+              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
                 {children}
               </div>
             </main>
@@ -723,23 +831,25 @@ function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: 
 
 function LegacyDashboardShell({ role, nav, activePath, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; children: React.ReactNode }) {
   const pathname = usePathname();
+  const { state, toggleSidebar } = useSidebar();
 
   return (
     <SidebarProvider>
       <div className="min-h-screen mb-bg-cream text-ink" dir="rtl">
         <div className="fixed inset-0 -z-10 mb-legacy-backdrop" />
-        <div className="mx-auto flex min-h-screen w-full max-w-[1500px] gap-0 lg:px-4">
-          <DashboardUiSidebar side="right" className="z-30" collapsible="offcanvas">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} />
+        <div className="flex min-h-screen w-full gap-0 lg:px-4">
+          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
+            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+            <SidebarRail />
           </DashboardUiSidebar>
 
           <SidebarInset className="min-w-0">
             <main className="min-w-0 flex-1 px-4 py-4 sm:px-6 lg:px-7">
               <div className="mb-4 flex min-h-20 items-center justify-between rounded-2xl border border-line bg-white/86 px-4 mb-shadow-legacy-top backdrop-blur lg:hidden">
                 <BrandLogo height={70} />
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy rtl:rotate-180 lg:hidden" aria-label="فتح قائمة لوحة التحكم" />
+                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
               </div>
-              <div key={pathname} className="mx-auto max-w-[1180px] animate-[dashIn_260ms_ease-out]">
+              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
                 {children}
               </div>
             </main>
