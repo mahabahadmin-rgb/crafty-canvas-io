@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 const nextConfig: NextConfig = {
   typedRoutes: false,
   images: {
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
 };
