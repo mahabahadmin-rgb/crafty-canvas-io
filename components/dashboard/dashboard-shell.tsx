@@ -536,43 +536,64 @@ function IndividualSidebarContent({
 }
 
 function IndividualDashboardShell({ role, nav, activePath, ownerName, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; ownerName: string; children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <IndividualDashboardShellContent role={role} nav={nav} activePath={activePath} ownerName={ownerName}>
+        {children}
+      </IndividualDashboardShellContent>
+    </SidebarProvider>
+  );
+}
+
+function IndividualDashboardShellContent({
+  role,
+  nav,
+  activePath,
+  ownerName,
+  children,
+}: {
+  role: DashboardRole;
+  nav: DashboardNavGroup[];
+  activePath: string;
+  ownerName: string;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen bg-white mb-text-ink" dir="rtl">
-        <div className="flex min-h-screen w-full">
-          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-            <SidebarRail />
-          </DashboardUiSidebar>
+    <div className="min-h-screen bg-white mb-text-ink" dir="rtl">
+      <div className="flex min-h-screen w-full">
+        <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+          <SidebarRail />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
-              <div className="mb-5 flex min-h-11 items-center justify-between">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
-                <div className="hidden lg:block" />
-                <div className="ms-auto flex items-center gap-3">
-                  <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
-                    <Bell className="h-5 w-5" />
-                    <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
-                  </Link>
-                  <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الرسائل">
-                    <Mail className="h-5 w-5" />
-                  </Link>
-                  <Link href={dashboardHref(role, "personal-profile")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label={ownerName}>
-                    <UserRound className="h-5 w-5" />
-                  </Link>
-                </div>
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
+            <div className="mb-5 flex min-h-11 items-center justify-between">
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
+              <div className="hidden lg:block" />
+              <div className="ms-auto flex items-center gap-3">
+                <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
+                  <Bell className="h-5 w-5" />
+                  <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full mb-bg-notice px-1 text-[11px] font-extrabold text-white">3</span>
+                </Link>
+                <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الرسائل">
+                  <Mail className="h-5 w-5" />
+                </Link>
+                <Link href={dashboardHref(role, "personal-profile")} className="grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label={ownerName}>
+                  <UserRound className="h-5 w-5" />
+                </Link>
               </div>
+            </div>
 
-              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
-                {children}
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
+            <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
+              {children}
+            </div>
+          </main>
+        </SidebarInset>
+      </div>
 
       <style jsx global>{`
         @keyframes dashIn {
@@ -580,8 +601,7 @@ function IndividualDashboardShell({ role, nav, activePath, ownerName, children }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
-      </div>
-    </SidebarProvider>
+    </div>
   );
 }
 
@@ -751,118 +771,156 @@ function BusinessSidebarContent({
 }
 
 function BusinessDashboardShell({ role, nav, activePath, ownerName, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; ownerName: string; children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <BusinessDashboardShellContent role={role} nav={nav} activePath={activePath} ownerName={ownerName}>
+        {children}
+      </BusinessDashboardShellContent>
+    </SidebarProvider>
+  );
+}
+
+function BusinessDashboardShellContent({
+  role,
+  nav,
+  activePath,
+  ownerName,
+  children,
+}: {
+  role: DashboardRole;
+  nav: DashboardNavGroup[];
+  activePath: string;
+  ownerName: string;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const profileMode = activePath === "profile";
   const { state, toggleSidebar } = useSidebar();
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen bg-white mb-text-navy" dir="rtl">
-        <style dangerouslySetInnerHTML={{ __html: dashboardBusinessCss }} />
-        <div className="flex min-h-screen w-full">
-          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-            <SidebarRail />
-          </DashboardUiSidebar>
+    <div className="min-h-screen bg-white mb-text-navy" dir="rtl">
+      <style dangerouslySetInnerHTML={{ __html: dashboardBusinessCss }} />
+      <div className="flex min-h-screen w-full">
+        <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+          <SidebarRail />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
-              <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
-                <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
-                <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
-                  {profileMode ? (
-                    <>
-                      <div className="me-5 hidden items-center gap-3 border-s border-[#E8DED4] ps-5 lg:flex">
-                        <div className="text-right">
-                          <p className="text-[15px] font-extrabold leading-6 text-[#1D1916]">أحمد عبدالله</p>
-                          <p className="mt-0.5 text-xs font-bold text-[#1D1916]">مستثمر فرد.</p>
-                        </div>
-                        <div className="grid h-12 w-12 place-items-center rounded-full bg-[#F4F0EC] text-[#1D1916]">
-                          <UserRound className="h-7 w-7" />
-                        </div>
-                        <ChevronLeft className="h-4 w-4 -rotate-90 text-[#1D1916]" />
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
+            <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
+              <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
+              <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
+                {profileMode ? (
+                  <>
+                    <div className="me-5 hidden items-center gap-3 border-s border-[#E8DED4] ps-5 lg:flex">
+                      <div className="text-right">
+                        <p className="text-[15px] font-extrabold leading-6 text-[#1D1916]">أحمد عبدالله</p>
+                        <p className="mt-0.5 text-xs font-bold text-[#1D1916]">مستثمر فرد.</p>
                       </div>
-                      <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الإشعارات">
-                        <Bell className="h-5 w-5" />
-                        <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
-                      </Link>
-                      <Link href={dashboardHref(role, "messages")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الرسائل">
-                        <Mail className="h-5 w-5" />
-                        <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
-                      </Link>
-                      <Link href={dashboardHref(role, "profile")} className="grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الملف الشخصي">
-                        <UserRound className="h-5 w-5" />
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      <Link href={dashboardHref(role, "profile")} className="grid h-12 w-12 place-items-center rounded-full border mb-border-page text-[18px] font-extrabold" aria-label={ownerName}>
-                        م
-                      </Link>
-                      <ChevronLeft className="h-4 w-4 -rotate-90 fill-mb-navy" />
-                      <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center" aria-label="الرسائل">
-                        <Mail className="h-7 w-7 stroke-[1.8]" />
-                      </Link>
-                      <Link href={dashboardHref(role, "support")} className="grid h-11 w-11 place-items-center" aria-label="الدعم الفني">
-                        <Headphones className="h-7 w-7 stroke-[1.8]" />
-                      </Link>
-                    </>
-                  )}
-                </div>
+                      <div className="grid h-12 w-12 place-items-center rounded-full bg-[#F4F0EC] text-[#1D1916]">
+                        <UserRound className="h-7 w-7" />
+                      </div>
+                      <ChevronLeft className="h-4 w-4 -rotate-90 text-[#1D1916]" />
+                    </div>
+                    <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الإشعارات">
+                      <Bell className="h-5 w-5" />
+                      <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">4</span>
+                    </Link>
+                    <Link href={dashboardHref(role, "messages")} className="relative grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الرسائل">
+                      <Mail className="h-5 w-5" />
+                      <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#C54B00] px-1 text-[11px] font-extrabold text-white">2</span>
+                    </Link>
+                    <Link href={dashboardHref(role, "profile")} className="grid h-11 w-11 place-items-center rounded-md border border-[#E8DED4] bg-white text-[#1D1916]" aria-label="الملف الشخصي">
+                      <UserRound className="h-5 w-5" />
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href={dashboardHref(role, "profile")} className="grid h-12 w-12 place-items-center rounded-full border mb-border-page text-[18px] font-extrabold" aria-label={ownerName}>
+                      م
+                    </Link>
+                    <ChevronLeft className="h-4 w-4 -rotate-90 fill-mb-navy" />
+                    <Link href={dashboardHref(role, "messages")} className="grid h-11 w-11 place-items-center" aria-label="الرسائل">
+                      <Mail className="h-7 w-7 stroke-[1.8]" />
+                    </Link>
+                    <Link href={dashboardHref(role, "support")} className="grid h-11 w-11 place-items-center" aria-label="الدعم الفني">
+                      <Headphones className="h-7 w-7 stroke-[1.8]" />
+                    </Link>
+                  </>
+                )}
               </div>
-              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
-                {children}
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
-
-        <style jsx global>{`
-          @keyframes dashIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
+            </div>
+            <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
+              {children}
+            </div>
+          </main>
+        </SidebarInset>
       </div>
-    </SidebarProvider>
+
+      <style jsx global>{`
+        @keyframes dashIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
   );
 }
 
 function LegacyDashboardShell({ role, nav, activePath, children }: { role: DashboardRole; nav: DashboardNavGroup[]; activePath: string; children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <LegacyDashboardShellContent role={role} nav={nav} activePath={activePath}>
+        {children}
+      </LegacyDashboardShellContent>
+    </SidebarProvider>
+  );
+}
+
+function LegacyDashboardShellContent({
+  role,
+  nav,
+  activePath,
+  children,
+}: {
+  role: DashboardRole;
+  nav: DashboardNavGroup[];
+  activePath: string;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen mb-bg-cream text-ink" dir="rtl">
-        <div className="fixed inset-0 -z-10 mb-legacy-backdrop" />
-        <div className="flex min-h-screen w-full gap-0 lg:px-4">
-          <DashboardUiSidebar side="left" className="z-30" collapsible="icon">
-            <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-            <SidebarRail />
-          </DashboardUiSidebar>
+    <div className="min-h-screen mb-bg-cream text-ink" dir="rtl">
+      <div className="fixed inset-0 -z-10 mb-legacy-backdrop" />
+      <div className="flex min-h-screen w-full gap-0 lg:px-4">
+        <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
+          <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
+          <SidebarRail />
+        </DashboardUiSidebar>
 
-          <SidebarInset className="min-w-0">
-            <main className="min-w-0 flex-1 px-4 py-4 sm:px-6 lg:px-7">
-              <div className="mb-4 flex min-h-20 items-center justify-between rounded-2xl border border-line bg-white/86 px-4 mb-shadow-legacy-top backdrop-blur lg:hidden">
-                <BrandLogo height={70} />
-                <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
-              </div>
-              <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
-                {children}
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
-
-        <style jsx global>{`
-          @keyframes dashIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
+        <SidebarInset className="min-w-0">
+          <main className="min-w-0 flex-1 px-4 py-4 sm:px-6 lg:px-7">
+            <div className="mb-4 flex min-h-20 items-center justify-between rounded-2xl border border-line bg-white/86 px-4 mb-shadow-legacy-top backdrop-blur lg:hidden">
+              <BrandLogo height={70} />
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
+            </div>
+            <div key={pathname} className="w-full animate-[dashIn_260ms_ease-out]">
+              {children}
+            </div>
+          </main>
+        </SidebarInset>
       </div>
-    </SidebarProvider>
+
+      <style jsx global>{`
+        @keyframes dashIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
   );
 }
