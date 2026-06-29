@@ -50,7 +50,6 @@ import { dashboardHref, type DashboardNavGroup, type DashboardRole } from "@/lib
 import { dashboardBusinessCss } from "@/lib/styles/dashboard-business-css";
 import {
   Sidebar as DashboardUiSidebar,
-  SidebarRail,
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
@@ -131,7 +130,7 @@ function SidebarContent({
   return (
     <div
       className={cn(
-        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-s",
+        "relative flex min-h-full flex-col bg-white py-5 text-[15px] mb-shadow-sidebar transition-[padding,width] duration-300 ease-out lg:border-l",
         collapsed ? "px-3" : "px-5",
       )}
       style={{ borderColor: sidebarBorderColor }}
@@ -145,7 +144,7 @@ function SidebarContent({
           title={collapsed ? "توسيع الشريط الجانبي" : "طي الشريط الجانبي"}
           className="dashboard-collapse-toggle absolute z-20 hidden h-9 w-9 place-items-center rounded-full border bg-white mb-text-brown transition lg:grid"
           style={{
-            insetInlineStart: "-18px",
+            left: "-18px",
             top: "28px",
             borderColor: sidebarBorderColor,
             backgroundColor: "#fffdf9",
@@ -176,7 +175,7 @@ function SidebarContent({
         </button>
       </div>
 
-      <nav className="grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل لوحة التحكم">
+      <nav className="grid min-h-0 flex-1 gap-0 overflow-y-auto no-scrollbar" aria-label="تنقل لوحة التحكم">
         {nav.map((group, groupIndex) => {
           const groupKey = `${group.title || "root"}-${groupIndex}`;
           const isExpanded = collapsed ? true : expandedGroups[groupKey] ?? true;
@@ -451,7 +450,7 @@ function IndividualSidebarContent({
         </div>
       </div>
 
-      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل حساب الأفراد">
+      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto no-scrollbar" aria-label="تنقل حساب الأفراد">
         {nav.map((group, groupIndex) => {
           const groupKey = `${group.title || "root"}-${groupIndex}`;
           const isExpanded = expandedGroups[groupKey] ?? true;
@@ -566,7 +565,6 @@ function IndividualDashboardShellContent({
       <div className="flex min-h-screen w-full">
         <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
           <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-          <SidebarRail />
         </DashboardUiSidebar>
 
         <SidebarInset className="min-w-0">
@@ -672,7 +670,7 @@ function BusinessSidebarContent({
         <Menu className={cn("mt-3 hidden h-7 w-7 lg:block", profileMode ? "text-[#1D1916]" : "")} />
       </div>
 
-      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto" aria-label="تنقل حساب الأعمال">
+      <nav className="relative z-10 grid min-h-0 flex-1 gap-0 overflow-y-auto no-scrollbar" aria-label="تنقل حساب الأعمال">
         {nav.map((group, groupIndex) => {
           const isHomeGroup = groupIndex === 0;
           const groupKey = `${group.title || "root"}-${groupIndex}`;
@@ -803,7 +801,6 @@ function BusinessDashboardShellContent({
       <div className="flex min-h-screen w-full">
         <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
           <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-          <SidebarRail />
         </DashboardUiSidebar>
 
         <SidebarInset className="min-w-0">
@@ -899,7 +896,6 @@ function LegacyDashboardShellContent({
       <div className="flex min-h-screen w-full gap-0 lg:px-4">
         <DashboardUiSidebar side="right" className="z-30" collapsible="icon">
           <DashboardSidebarPanel role={role} nav={nav} activePath={activePath} collapsed={state === "collapsed"} onToggleCollapsed={toggleSidebar} />
-          <SidebarRail />
         </DashboardUiSidebar>
 
         <SidebarInset className="min-w-0">
