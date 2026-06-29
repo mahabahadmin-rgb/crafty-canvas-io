@@ -1,0 +1,1500 @@
+
+
+===== PAGE 1 =====
+AI AGENT HANDOFF REPORT
+Mahabah Ultra-Detailed Website
+Build Report
+ تقرير تفصيلي لبناء منصة- مهابة
+المساهمات العقارية
+A professional implementation brief containing visual
+segmentation, section-by-section UI requirements, component
+architecture, CMS-ready content models, responsive behavior,
+and AI image-generation prompts for each image placement.
+Arabic RTL
+Next.js 15
+Premium Saudi Real Estate
+Image Prompt Library
+Agent Ready
+
+
+===== PAGE 2 =====
+Objective
+Give an AI development
+agent enough visual,
+product, and
+engineering detail to
+recreate the supplied
+landing page direction
+with a polished
+institutional standard.
+Included
+Full reference
+screenshot and segment
+map
+10 cropped page
+sections
+22 visual slot crops and
+image prompts
+Design system,
+component list, data
+models, routes, forms,
+and acceptance
+checklist
+Prepared as an agent handoff document. Use with the attached cropped images and prompt files.
+• 
+• 
+• 
+• 
+
+
+===== PAGE 3 =====
+MAHABAH AGENT HANDOFF
+Report Contentsفهرس التقرير
+01
+Executive Build Brief
+02
+Visual Reference and Segment Map
+03
+Design System
+04
+Landing Page Section Specifications
+05
+AI Image Prompt Library
+06
+Component Architecture
+07
+CMS Data Models
+08
+Routes and Forms
+09
+Responsive and Accessibility
+Requirements
+10
+Acceptance Criteria and Final Agent
+Prompt
+How the agent should use this PDF
+First, study the full reference image. Second, use the segment map to understand page order.
+Third, implement each segment as a reusable component. Fourth, generate or source the
+required illustrations using the prompt library. Fifth, validate against the acceptance checklist.
+:قاعدة مهمةHTML  ال يتم وضع نص داخل الصور المولدة. جميع النصوص العربية يجب أن تكون عناصر
+حقيقية داخل الواجهة لضمان الوضوح، الترجمة، تحسين محركات البحث، وإمكانية الوصول.
+
+
+===== PAGE 4 =====
+01 - EXECUTIVE BUILD BRIEF
+Product and Experience Directionاتجاه المنتج والتجربة
+Product role
+Mahabah is presented as a Saudi
+platform that transforms real-estate
+assets into structured real-estate
+contributions and investment projects
+under high governance standards.
+The site must reassure three audiences:
+property owners, investors, and
+institutional partners.
+Property owners
+Investors
+Partners
+Regulators
+Service providers
+Design personality
+Institutional, premium, calm, regulated,
+Saudi-market focused, and technically
+credible.
+The interface should feel appropriate for
+managing large real-estate assets and
+contribution structures, not like a generic
+real-estate listings site.
+Must not feel like
+Startup SaaS
+Generic brokerage
+Photoreal stock site
+Colorful fintech app
+Unregulated investment pitch
+Template marketplace design
+Experience principles
+Principle
+Implementation meaning
+Trust before
+conversion
+Show governance, process, partners, FAQs, and legal-style footer before final
+CTA.
+Arabic-first
+RTL spacing, Arabic hierarchy, localized labels, and culturally appropriate visuals.
+Investment-grade calm
+Muted colors, precise cards, deliberate typography, and no aggressive
+animations.
+Visual consistency
+All illustrations share the same architectural pencil-sketch language.
+CMS-ready
+Every card, metric, article, FAQ, and contribution comes from typed data models.
+
+
+===== PAGE 5 =====
+02 - VISUAL REFERENCE
+Full Landing Page Referenceالصورة المرجعية الكاملة
+
+
+===== PAGE 6 =====
+02 - VISUAL SEGMENTATION
+Segment Mapخريطة التقسيم
+The reference image has been divided into 10 build segments. Each segment should become a section-
+level component or a composition of smaller reusable components.
+
+
+===== PAGE 7 =====
+03 - DESIGN SYSTEM
+Visual System Specificationنظام التصميم
+Color palette
+Ivory Background
+#F7F3EE
+Warm Surface
+#EFE8DE
+Primary Navy
+#071A2D
+Secondary Navy
+#0D243D
+Gold
+#A87C4F
+Light Gold
+#C7A27A
+Text
+#1F1F1F
+Muted Text
+#6B6259
+Typography
+Arabic display: Noto Kufi Arabic, IBM
+Plex Sans Arabic, or a premium DIN-
+style Arabic font.
+Use heavy weight for large Arabic
+headings and medium weight for body
+text.
+Headings should be centered in major
+sections and paired with thin gold
+divider lines.
+Keep body copy short, formal, and
+trust-oriented.
+Cards and surfaces
+Ivory cards on warm beige
+background.
+Thin borders in #E0D4C7.
+Subtle shadows with navy opacity
+below 8%.
+Border radius between 16px and 28px.
+Muted gold used for badges, dividers,
+icons, and active states.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 8 =====
+Illustration style lock
+Every generated image must look like it belongs to the same institutional architectural sketch
+library.
+GLOBAL IMAGE STYLE LOCK
+Use this style lock at the beginning of every image-generation prompt:
+Premium Saudi real-estate investment platform illustration, architectural pencil sketch, fine 
+graphite linework, sepia ink wash, ivory paper background, subtle beige shading, muted gold 
+accent only where necessary, formal institutional tone, clean technical drawing, refined 
+composition, elegant real-estate development subject, no readable text, no logo, no watermark.
+NEGATIVE STYLE LOCK
+Do not create photorealistic stock photos, colorful gradients, cartoon illustrations, SaaS vector 
+art, neon colors, random Arabic text, random English text, fake logos, fake partner marks, messy 
+labels, people close-ups, distorted buildings, unrealistic luxury, or low-quality scribbles.
+
+
+===== PAGE 9 =====
+04 - SECTION 01
+Global Header, Hero, and Search البحث+  البطل+ الترويسة
+
+
+===== PAGE 10 =====
+Purpose
+Establishes brand trust, explains the
+platform promise, and gives users an
+immediate discovery path.
+Layout notes
+Sticky RTL header at the top, brand logo
+on the right, navigation in the center,
+CTAs on the left. Hero uses a three-part
+architectural panorama: completed
+project on the left, construction stage in
+the middle, raw land on the right. Search
+module sits below the headline as a
+floating ivory card.
+Responsive behavior
+Mobile header becomes an off-canvas
+RTL menu. Hero illustration becomes a
+stacked/centered panoramic image with
+the search fields full-width below the
+headline.
+Components
+Header/NavBar
+Primary and secondary CTA buttons
+Hero illustration system
+Arabic headline block
+Floating advanced search card
+Search fields with icons
+Search button
+Interactions
+Header becomes compact on scroll
+Navigation links show gold underline
+on active/hover
+CTA buttons have subtle lift and
+shadow
+Search fields open dropdowns for city/
+service/property type
+Search button routes to filtered assets/
+contributions results
+Visual assets needed
+Hero completed project sketch
+Hero construction sketch
+Hero raw land/masterplan sketch
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 11 =====
+04 - SECTION 02
+Real Estate Assets Sectionاألصول العقارية
+Purpose
+Shows curated property assets available
+for study, structuring, or contribution
+conversion.
+Layout notes
+Centered Arabic title with gold divider
+lines. Four-card carousel in RTL order
+with cream cards, sketch thumbnails,
+status badges, asset name, city, usage,
+area, and detail link.
+Responsive behavior
+One card per row on mobile, two cards on
+tablet, four cards on desktop. Carousel
+controls remain reachable and large
+enough for touch.
+Components
+Section heading
+Carousel arrows
+Asset card
+Status badge
+Metadata grid
+Details link
+Interactions
+Carousel scrolls horizontally
+Card hover reveals stronger shadow
+and gold border
+Details link routes to /assets/[slug]
+Filters can be connected to assets
+page
+Visual assets needed
+Asset card land masterplan
+Asset card high-rise tower
+Asset card residential land
+Asset card commercial complex
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 12 =====
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+
+
+===== PAGE 13 =====
+04 - SECTION 03
+Real Estate Contributions Sectionالمساهمات العقارية
+Purpose
+Converts the page from brand story into
+investment opportunity discovery with
+dashboard-style indicators.
+Layout notes
+Full-width dark navy panel with rounded
+corners. Arabic title in white, gold
+dividers, explanatory subtitle, four
+contribution cards with process timelines
+and numeric metrics.
+Responsive behavior
+Cards stack vertically on mobile with the
+timeline preserved. The dark panel
+remains edge-to-edge with safe padding.
+Components
+Dark section shell
+Contribution opportunity card
+Stage badge
+Progress timeline
+Metric columns
+Details link
+Interactions
+Card hover brightens gold outlines
+Timeline nodes show tooltips
+Details link routes to /contributions/
+[slug]
+Carousel arrows scroll cards
+Visual assets needed
+Dark premium contribution card sketches
+Mini timeline icons
+Investment metric iconography
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 14 =====
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+
+
+===== PAGE 15 =====
+04 - SECTION 04
+Mahabah Journey Timelineرحلة مهابة
+Purpose
+Explains the end-to-end lifecycle from
+asset intake to exit in a simple process
+map.
+Layout notes
+Horizontal seven-step RTL process bar
+with circular icon medallions, thin arrows,
+and labels underneath.
+Responsive behavior
+On mobile, convert to a vertical or
+horizontally scrollable timeline with
+snapping.
+Components
+Process timeline
+Circular icon buttons
+Arrow separators
+Step labels
+Interactions
+Hover state highlights icon and label in
+gold
+Clicking a step can scroll to
+explanation or open tooltip
+Visual assets needed
+Consistent premium outline icon set for real
+estate process
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 16 =====
+04 - SECTION 05
+Media and Knowledge Centerالمركز اإلعالمي والمعرفي
+Purpose
+Builds authority with news, market
+knowledge, thought leadership, and
+institutional communication.
+Layout notes
+Large featured article on the left, compact
+recent-news list in the middle, supporting
+article image on the right. Uses soft cards
+and architectural sketch thumbnails.
+Responsive behavior
+Featured article becomes full-width.
+Recent list and side image stack
+underneath. Maintain image-to-text
+hierarchy.
+Components
+Section heading
+Featured article card
+Read more button
+Recent articles list
+Supporting article card
+Carousel arrows
+Interactions
+Article cards route to /media/[slug]
+Category filters route or filter in place
+Carousel arrows cycle featured stories
+Visual assets needed
+Featured Riyadh real-estate skyline article image
+Recent news thumbnail set
+Tower/construction editorial illustration
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 17 =====
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+
+
+===== PAGE 18 =====
+04 - SECTION 06
+Knowledge Libraryمكتبة المعرفة
+Purpose
+Positions Mahabah as an educational,
+transparent, and professional contributor
+to the real-estate investment market.
+Layout notes
+Tabs at the top, followed by five resource
+cards with thumbnail sketch, title, and
+date.
+Responsive behavior
+Tabs become horizontal scroll. Cards
+stack one per row on small screens.
+Components
+Tabs
+Resource card
+Thumbnail
+Article metadata
+Carousel arrows
+Interactions
+Tabs filter content without page reload
+Cards route to resource detail page
+Hover state adds gold border
+Visual assets needed
+Knowledge card sketches for feasibility studies,
+asset structuring, market trends, investor guide
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 19 =====
+04 - SECTION 07
+Metrics and Partners شركاء النجاح+ اإلحصاءات
+Purpose
+Provides proof of scale, credibility, and
+institutional association.
+Layout notes
+Four metric columns with large icons and
+numbers, followed by partner logo strip in
+clean framed boxes.
+Responsive behavior
+Metrics become a two-by-two grid, logos
+become horizontally scrollable.
+Components
+Animated counters
+Metric icon cards
+Partner logo strip
+Logo cards
+Interactions
+Counters animate on viewport entry
+Partner logos switch from grayscale to
+full tone on hover
+Logo cards can link to partner proof
+pages if available
+Visual assets needed
+Premium outline metric icons
+Neutral partner logo placeholders if official logos
+are not licensed
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 20 =====
+04 - SECTION 08
+FAQ Sectionاألسئلة الشائعة
+Purpose
+Reduces friction and answers core
+questions about contributions, fees, risks,
+and profit distribution.
+Layout notes
+Section heading, two-column accordion
+grid with subtle ivory panels and chevron
+controls.
+Responsive behavior
+Single-column accordion on mobile.
+Increase tap target height to at least
+44px.
+Components
+FAQ heading
+Accordion item
+Chevron icon
+Category-aware questions
+Interactions
+Only one item may open per column or
+allow multiple based on shadcn
+accordion setting
+Keyboard accessible expand/collapse
+Deep-link via query/hash for common
+questions
+Visual assets needed
+Soft background villa/land sketch behind FAQ or
+nearby support card
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 21 =====
+04 - SECTION 09
+Final Property Owner CTAهل تمتلك أصالً عقاريًا؟
+Purpose
+Captures property owners after they have
+seen credibility, process, assets, and
+FAQs.
+Layout notes
+Wide ivory banner with left hand-drawn
+map illustration, centered Arabic CTA text
+and two buttons, right completed-building
+illustration.
+Responsive behavior
+Text and buttons stack above
+illustrations. Keep building illustration
+visible but cropped gracefully.
+Components
+CTA banner
+Primary button
+Secondary button
+Left illustration
+Right illustration
+Interactions
+Primary opens asset submission flow
+Secondary opens study request form
+Buttons have strong hover states
+Visual assets needed
+Hand drawing real estate map
+Completed mid-rise building sketch
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 22 =====
+04 - SECTION 10
+Institutional Footerالتذييل المؤسسي
+Purpose
+Completes trust loop with services,
+support links, quick links, contact details,
+social channels, and legal notes.
+Layout notes
+Dark navy footer with logo/brand block
+on left, multiple Arabic link columns,
+contact icons on right, gold legal bar at
+the bottom.
+Responsive behavior
+Footer columns stack vertically and
+contact info moves near top for mobile
+conversion.
+Components
+Footer logo block
+Service links
+Support links
+Quick links
+Contact details
+Social icons
+Legal disclaimer bar
+Interactions
+Links have gold hover underline
+Social icons open external platforms
+Email and phone links use mailto/tel
+Visual assets needed
+No generated images required except logo/
+social/icon assets
+Agent implementation note
+Build this as a reusable section component and connect all repeated content to typed data.
+Preserve the visual hierarchy from the reference crop. Use the crop as the pixel direction, but
+make the final implementation responsive and production-grade.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 23 =====
+05 - IMAGE PROMPT LIBRARY
+AI Image Generation Instructionsتعليمات توليد الصور
+Universal style prompt
+Paste this at the top of every image prompt to keep the page coherent.
+GLOBAL IMAGE STYLE LOCK
+Use this style lock at the beginning of every image-generation prompt:
+Premium Saudi real-estate investment platform illustration, architectural pencil sketch, fine 
+graphite linework, sepia ink wash, ivory paper background, subtle beige shading, muted gold 
+accent only where necessary, formal institutional tone, clean technical drawing, refined 
+composition, elegant real-estate development subject, no readable text, no logo, no watermark.
+NEGATIVE STYLE LOCK
+Do not create photorealistic stock photos, colorful gradients, cartoon illustrations, SaaS vector 
+art, neon colors, random Arabic text, random English text, fake logos, fake partner marks, messy 
+labels, people close-ups, distorted buildings, unrealistic luxury, or low-quality scribbles.
+Important production rule
+Generated images must not contain text. The website should overlay all Arabic labels, status
+badges, headlines, dates, and metadata as HTML so the design stays readable, accessible, and
+easy to edit.
+For real partner logos, use official licensed SVG/PNG assets only. Do not ask an image model to
+invent or recreate partner logos.
+
+
+===== PAGE 24 =====
+Aspect: 16:9 wide hero sub-
+scene
+Aspect: 16:9 wide hero sub-
+scene
+Aspect: 16:9 wide hero sub-
+scene
+05 - VISUAL SLOTS
+Prompt Cards for Each Image Placementبطاقات أوامر الصور
+01. Hero - completed project / مرحلة االنتهاء
+Prompt
+Architectural pencil sketch of a completed premium Saudi residential mixed-use 
+building, 6 to 8 floors, elegant facade, palm trees, cars and a few distant 
+pedestrians, Riyadh urban context, clean master-planning foreground, ivory paper 
+background, sepia graphite lines, subtle beige wash, high-end institutional real 
+estate style, minimal gold accent potential, no readable text, no logos, no watermark.
+Negative prompt
+Avoid photorealism, colorful gradients, cartoon style, random Arabic text, distorted cars, people close-ups, 
+exaggerated luxury, neon lighting.
+02. Hero - construction stage / مرحلة البناء
+Prompt
+Premium architectural construction-site pencil sketch showing a concrete building 
+frame under construction, two tall cranes, scaffolding, structural columns, clean 
+technical lines, Saudi real-estate development atmosphere, ivory and warm beige paper, monochrome graphite with 
+sepia tones, refined institutional illustration, no readable text, no logos, no watermark.
+Negative prompt
+Avoid messy construction, safety hazards, bright colors, photorealism, futuristic sci-fi towers, random signage 
+or text.
+03. Hero - raw land / أرض فضاء
+Prompt
+Architectural masterplan pencil sketch of raw Saudi land 
+divided into plots and roads, distant desert mountains, 
+flat development parcels, utility corridors, sparse 
+landscape, refined land investment visualization, ivory 
+background, graphite and sepia ink, clean aerial 
+perspective, premium Saudi real estate platform style, no readable text, no logos.
+Negative prompt
+Avoid lush green landscape, photorealism, colorful map colors, messy labels, unrealistic mountains, visible brand 
+names.
+
+
+===== PAGE 25 =====
+Aspect: 4:3 card thumbnail
+Aspect: 4:3 card thumbnail
+Aspect: 4:3 card thumbnail
+04. Asset card - land masterplan
+Prompt
+Small card thumbnail illustration of a Saudi land development masterplan from an 
+elevated angle, plotted streets, property parcels, palm trees, road edges, light beige paper texture, 
+architectural pencil sketch, fine grayscale linework with sepia shading, designed to sit in a premium real estate 
+asset card, no text, no logo.
+Negative prompt
+Avoid colorful zoning maps, satellite imagery, random labels, people close-up, low-quality sketch.
+05. Asset card - high-rise tower
+Prompt
+Premium pencil sketch thumbnail of modern Riyadh high-rise towers, business district 
+feeling, elegant vertical forms, light street base, soft beige wash, grayscale 
+graphite detail, institutional real estate investment style, no text, no logo, clean 
+enough for a compact card header.
+Negative prompt
+Avoid glassy blue photorealism, dramatic night lighting, random signage, overly 
+futuristic skyscrapers.
+06. Asset card - residential land
+Prompt
+Elevated architectural pencil sketch of residential land parcels in Saudi Arabia, 
+organized roads and plots, subtle surrounding buildings, clean real-estate study 
+visualization, ivory background, sepia graphite tones, no readable text, no logo, 
+suitable for a 4:3 asset card thumbnail.
+Negative prompt
+Avoid satellite view, colored maps, UI labels inside image, messy perspective.
+
+
+===== PAGE 26 =====
+Aspect: 4:3 card thumbnail
+Aspect: compact card header
+or background
+Aspect: compact card header
+or background
+07. Asset card - commercial complex
+Prompt
+Detailed pencil sketch of a premium Saudi commercial/residential complex, mid-rise 
+blocks around a central plaza, palm trees, clean streets, elegant beige paper texture, architectural concept 
+drawing style, grayscale and sepia, no text, no logos, card thumbnail composition.
+Negative prompt
+Avoid photoreal people, excessive ornamentation, colorful render, generic mall stock image style.
+08. Contribution card visual style
+Prompt
+Dark-navy compatible line illustration for an investment contribution card: Saudi 
+commercial real-estate project silhouette, thin gold and ivory linework, technical 
+sketch atmosphere, minimal background details, premium dashboard style, transparent or very dark navy background, 
+no readable text, no logo.
+Negative prompt
+Avoid bright colors, heavy textures, over-detailed image that competes with metrics, random typography.
+09. Contribution card - mixed-use project
+Prompt
+Premium dark-mode real-estate contribution card illustration of a mid-rise mixed-use 
+Saudi project, fine ivory linework, subtle muted gold highlights, clean architectural 
+contours, minimal background, designed for a dark navy UI card with overlaid 
+investment metrics, no text, no logo.
+Negative prompt
+Avoid photorealism, busy city scenes, colorful lights, random numbers or lettering.
+
+
+===== PAGE 27 =====
+Aspect: compact card header
+or background
+Aspect: compact card header
+or background
+Aspect: 1:1 icons plus
+horizontal set
+Aspect: 16:9 article image
+10. Contribution card - land project
+Prompt
+Dark premium line-art thumbnail of plotted land converted into a real-estate 
+contribution, aerial parcel layout, road grid, gold and ivory strokes on deep navy 
+background, institutional investment dashboard style, no text, no logo.
+Negative prompt
+Avoid colored GIS map, satellite view, thick black outlines, clutter.
+11. Contribution card - residential project
+Prompt
+Elegant line illustration of a Saudi residential development for a dark navy 
+contribution card, palm trees, roads, building silhouettes, ivory and muted gold 
+strokes, refined technical sketch, clear empty areas for UI metrics, no text, no logo.
+Negative prompt
+Avoid high saturation, photoreal rendering, people close-up, random labels.
+12. Journey timeline icon set
+Prompt
+Create a consistent set of seven premium outline icons for a Saudi real-estate contribution lifecycle: asset 
+intake handshake, feasibility study document with magnifier, investment structuring cubes, licensing clipboard, 
+offering megaphone, management gears/building, exit growth chart. Monoline style, ivory background, dark navy 
+line, muted gold accent, circular medallion framing, Arabic RTL product UI icon style, no text.
+Negative prompt
+Avoid cartoon icons, filled colorful icons, inconsistent stroke weights, text inside icons, gradients.
+13. Media center - featured article
+Prompt
+Editorial architectural pencil sketch of Riyadh real-estate skyline with landmark-
+inspired towers, new development zones, road foreground, subtle construction cranes, 
+premium institutional media-center article image, ivory paper, sepia graphite, refined thin lines, no readable 
+text, no logos, composition leaves space for headline overlay.
+Negative prompt
+Avoid exact copyrighted landmark reproduction, random billboards, photoreal skyline, bright blue glass.
+
+
+===== PAGE 28 =====
+Aspect: small 4:3 thumbnails
+Aspect: 4:3 article image
+Aspect: 4:3 card thumbnails
+14. Media center - recent thumbnails
+Prompt
+Set of small editorial real-estate article thumbnails in a unified pencil sketch 
+style: Saudi project announcement, market report, contribution governance, real-estate conference. Ivory beige 
+background, sepia graphite linework, minimal details, no text or logos.
+Negative prompt
+Avoid inconsistent styles, colorful diagrams, unreadable tiny text, logos.
+15. Media center - supporting tower image
+Prompt
+Premium pencil sketch of several modern towers under development, cranes, urban base, 
+warm ivory background, sepia-gray line drawing, sophisticated Saudi real estate 
+editorial style, no readable text, no logo.
+Negative prompt
+Avoid photorealism, saturated sky, random text, distorted tower geometry.
+16. Knowledge library cards
+Prompt
+Generate a cohesive set of five compact knowledge-library thumbnails for a Saudi real-estate investment platform: 
+feasibility study board, asset structuring diagram, future real-estate investor in Saudi Arabia, 2024 real-estate 
+market trends, investor guide for property contributions. Architectural pencil sketch, ivory background, sepia 
+graphite, refined technical drawing, no text inside images.
+Negative prompt
+Avoid random charts with text, colorful stock illustration, cartoon people, inconsistent perspective.
+
+
+===== PAGE 29 =====
+Aspect: 1:1 icons
+Aspect: logo strip
+Aspect: wide supporting
+illustration
+Aspect: wide banner side
+illustration
+17. Metrics row icons
+Prompt
+Premium institutional outline icon set for website statistics: real-estate building, group of investors, 
+operations/gear, investment target. Dark navy linework, muted gold accent, clean geometric style, ivory 
+background, consistent stroke, no text.
+Negative prompt
+Avoid filled emojis, colorful app icons, inconsistent line weights, clipart style.
+18. Partners row visual treatment
+Prompt
+Create neutral framed partner-logo placeholders for a premium Saudi institutional website: white/ivory 
+rectangular cards, subtle border, grayscale emblem placeholder, clean spacing. Do not invent real logos or brand 
+marks unless official licensed assets are supplied.
+Negative prompt
+Avoid fake versions of real company logos, random brand names, colorful badges, distorted marks.
+19. FAQ / support background villa
+Prompt
+Soft wide pencil sketch of a Saudi villa or residential compound landscape used as a 
+subtle FAQ/support background, palm trees, low-rise elegant architecture, ivory paper, very light sepia graphite 
+linework, low contrast so accordion UI remains readable, no text, no logo.
+Negative prompt
+Avoid dark contrast, photoreal mansion, bright colors, crowded people, labels.
+20. Final CTA - hand drawing map
+Prompt
+Close-up pencil sketch of a hand drawing a real-estate parcel map with roads and plots on ivory paper, 
+professional property-owner submission context, sepia graphite, premium technical sketch style, subtle shadow, no 
+text, no logos.
+Negative prompt
+Avoid photoreal hand detail, random letters on map, colored markers, messy sketch.
+
+
+===== PAGE 30 =====
+Aspect: wide banner side
+illustration
+Aspect: footer background
+and icons
+21. Final CTA - completed building
+Prompt
+Wide pencil sketch of a completed Saudi mid-rise residential/commercial building with 
+palm trees and cars, arranged as a right-side banner illustration, ivory background, 
+sepia graphite linework, premium real-estate platform style, no text, no logos.
+Negative prompt
+Avoid saturated color render, people close-up, unrealistic luxury, random signage.
+22. Footer icon/logo visual language
+Prompt
+Dark navy institutional footer visual system with ivory and muted gold line icons for 
+contact, social, legal links, clean Arabic RTL spacing, premium Saudi real-estate brand feeling. Use simple 
+monoline icons and do not generate fake partner logos.
+Negative prompt
+Avoid bright social media colors, heavy gradients, cartoon icons, cluttered footer texture.
+06 - COMPONENT ARCHITECTURE
+Recommended Front-End Structureهيكلة الواجهة
+Section components
+HeroSection
+SearchBar
+AssetsCarousel
+ContributionsShowcase
+JourneyTimeline
+MediaCenter
+KnowledgeLibrary
+MetricsBand
+PartnersStrip
+FAQSection
+FinalCTA
+SiteFooter
+Reusable UI components
+SectionHeading with gold divider
+CardShell
+StatusBadge
+MetricItem
+TimelineDots
+IconMedallion
+ArticleCard
+ResourceCard
+PartnerLogoCard
+CTAButton variants
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 31 =====
+Suggested folder structure
+app/
+  page.tsx
+  about/page.tsx
+  assets/page.tsx
+  assets/[slug]/page.tsx
+  contributions/page.tsx
+  contributions/[slug]/page.tsx
+  request-study/page.tsx
+  submit-asset/page.tsx
+  media/page.tsx
+  media/[slug]/page.tsx
+  faq/page.tsx
+components/
+  layout/navbar.tsx
+  layout/footer.tsx
+  sections/hero-section.tsx
+  sections/assets-carousel.tsx
+  sections/contributions-showcase.tsx
+  sections/journey-timeline.tsx
+  sections/media-center.tsx
+  sections/knowledge-library.tsx
+  sections/metrics-band.tsx
+  sections/partners-strip.tsx
+  sections/faq-section.tsx
+  sections/final-cta.tsx
+  ui/status-badge.tsx
+  ui/section-heading.tsx
+lib/
+  data/assets.ts
+  data/contributions.ts
+  data/articles.ts
+  data/faqs.ts
+  types.ts
+
+
+===== PAGE 32 =====
+07 - CMS DATA MODELS
+Typed Data and API Requirementsنماذج البيانات
+Core TypeScript models
+export type Asset = {
+  id: string;
+  slug: string;
+  titleAr: string;
+  cityAr: string;
+  districtAr?: string;
+  assetTypeAr: string;
+  usageTypeAr: string;
+  areaSqm: number;
+  statusAr: ';'قيد الدراسة' | 'مؤهل' | 'قيد الهيكلة' | 'مغلق
+  deedNumber?: string;
+  listingDate: string;
+  image: string;
+  gallery?: string[];
+  coordinates?: { lat: number; lng: number };
+};
+export type Contribution = {
+  id: string;
+  slug: string;
+  titleAr: string;
+  cityAr: string;
+  stageAr: ';'تحت الدراسة' | 'قيد الهيكلة' | 'تحت الطرح' | 'مفتوحة' | 'مغلقة' | 'تخارج
+  capitalSar: number;
+  investorsCount: number;
+  durationMonths: number;
+  fundedPercent: number;
+  remainingDays?: number;
+  image: string;
+  timeline: { labelAr: string; completed: boolean; current?: boolean }[];
+};
+export type Article = {
+  id: string;
+  slug: string;
+  titleAr: string;
+  categoryAr: string;
+  date: string;
+  excerptAr: string;
+  image: string;
+  featured?: boolean;
+};
+export type FAQ = {
+  id: string;
+  categoryAr: string;
+  questionAr: string;
+  answerAr: string;
+};
+
+
+===== PAGE 33 =====
+API endpoints
+GET /api/assets
+GET /api/assets/:slug
+GET /api/contributions
+GET /api/contributions/:slug
+GET /api/articles
+POST /api/submit-asset
+POST /api/request-study
+POST /api/contact
+POST /api/newsletter
+Admin dashboard entities
+Assets and asset status
+Contributions and funding status
+Journey stage progress
+Media articles and resources
+FAQ categories
+Partners and logos
+Form submissions and attachments
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 34 =====
+08 - ROUTES AND FORMS
+Pages, Forms, and User Flowsالصفحات والنماذج
+Required page routes
+/
+Landing page
+/about
+About Mahabah
+/assets
+Assets listing
+/assets/[slug]
+Asset details
+/contributions
+Contribution listing
+/contributions/[slug]
+Contribution details
+/submit-asset
+Add property asset
+/request-study
+Request study
+/media
+Media center
+/media/[slug]
+Article detail
+/faq
+FAQ
+/contact
+Contact
+Submit asset form
+االسم الكامل
+رقم الجوال
+البريد اإللكتروني
+المدينة
+نوع األصل
+المساحة
+ رقم الصك- optional
+وصف األصل
+رفع الملفات
+الموافقة عىل سياسة الخصوصية
+Validation and states
+Inline validation in Arabic
+Loading state on submit
+Success confirmation card
+Error alert with retry
+File type and size validation
+Server-side validation with zod
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 35 =====
+09 - QUALITY REQUIREMENTS
+Responsive, Accessibility, SEO, and Performanceمتطلبات الجودة
+Responsive rules
+Desktop: 4 cards in assets and
+contributions when space allows.
+Tablet: 2 cards per row or horizontal
+carousel.
+Mobile: 1 card per row, full-width
+search fields, off-canvas menu.
+Hero illustrations should crop
+gracefully without hiding headline.
+Dark contributions panel must keep
+internal padding on small screens.
+Accessibility
+Use semantic HTML: header, nav,
+main, section, article, footer.
+All buttons and accordions keyboard
+accessible.
+Contrast must pass WCAG AA,
+especially gold on ivory and navy.
+Images need meaningful Arabic alt
+text.
+Forms require labels, aria-describedby,
+and clear errors.
+SEO
+Arabic metadata for every route.
+OpenGraph image for landing and
+article pages.
+Structured data for articles and
+organization if appropriate.
+Clean slugs and canonical URLs.
+HTML text for all headings instead of
+baked-in image text.
+Performance
+Use next/image for all illustrations.
+Serve responsive image sizes.
+Lazy-load below-the-fold images.
+Keep animation subtle and GPU-
+friendly.
+Target Lighthouse 90+ across major
+categories.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 36 =====
+10 - ACCEPTANCE CRITERIA
+Final Delivery Checklistمعايير القبول
+The final build is accepted only if:
+It clearly resembles the supplied Mahabah visual direction.
+The UI is Arabic-first and RTL-first without awkward alignment.
+The hero feels cinematic and premium, not stock-photo based.
+The assets and contributions sections use reusable card components.
+The dark contributions band has a high-trust investment dashboard feel.
+All image assets share one sketch style and contain no baked-in text.
+Forms have validation, loading, and success states.
+The footer includes legal, services, support, social, and contact information.
+Mobile design is polished and intentional.
+Code is typed, componentized, maintainable, and CMS-ready.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+
+
+===== PAGE 37 =====
+Copy-paste master prompt
+A separate Markdown file is included with this exact agent prompt for easier copying.
+You are a senior product designer, UX architect, Arabic RTL front-end engineer, and AI image 
+director.
+Build a production-ready Saudi Real Estate Contribution Platform named " "مهابةfor managing, 
+studying, structuring, and presenting real-estate assets and real-estate contributions.
+Use the attached design reference report and cropped segment images as the visual source of 
+truth. The goal is not a generic website. The result must feel like a premium institutional Saudi 
+real-estate investment platform with governance, credibility, and high trust.
+PROJECT POSITIONING
+- Brand name: مهابة
+- English transliteration: Mahabah
+- Descriptor: إلدارة المساهمات العقارية
+- Market: Saudi Arabia
+- Direction: Arabic-first, RTL-first
+- Tone: institutional, regulated, premium, calm, trustworthy
+- Visual DNA: architectural pencil sketches, ivory surfaces, dark navy investment panels, muted 
+gold accents, thin borders, elegant shadows, high whitespace.
+TECH STACK
+- Next.js 15 App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- Lucide React icons, customized where needed
+- Fully responsive, mobile-first
+- Arabic RTL layout by default
+- SEO metadata and OpenGraph images
+- Component-driven, data-driven, CMS-ready
+COLOR SYSTEM
+- Ivory background: #F7F3EE
+- Warm surface: #EFE8DE
+- Primary navy: #071A2D
+- Secondary navy: #0D243D
+- Gold: #A87C4F
+- Light gold: #C7A27A
+- Body text: #1F1F1F
+- Muted text: #6B6259
+TYPOGRAPHY
+- Use a premium Arabic font such as IBM Plex Sans Arabic, Noto Kufi Arabic, Noto Sans Arabic, or 
+DIN Next Arabic if available.
+- Headings should feel formal and investment-grade.
+- Body text should be readable and not too thin.
+- Use Arabic numerals or localized formatting consistently across metrics.
+GLOBAL LAYOUT REQUIREMENTS
+- Header is sticky.
+- Logo is on the right.
+- Navigation is RTL.
+- Main CTAs are on the left on desktop.
+- Use max-width content containers but allow selected sections, especially hero and dark 
+contribution band, to feel wide and cinematic.
+- Use thin #E1D6C9 borders, 16px to 28px border radii, soft shadows, and muted gold dividers.
+- Avoid colorful SaaS styling, gradients, playful illustrations, generic stock photos, or 
+startup-style cards.
+LANDING PAGE SECTION ORDER
+1. Header
+2. Hero with three architectural sketch states: completed project, construction stage, raw land
+3. Floating search module
+4. Real estate assets section - األصول العقارية
+
+
+===== PAGE 38 =====
+5. Real estate contributions section - المساهمات العقارية
+6. Mahabah journey process timeline - رحلة مهابة
+7. Media and knowledge center - المركز اإلعالمي والمعرفي
+8. Knowledge library - مكتبة المعرفة
+9. Statistics metrics row
+10. Partners row
+11. FAQ section - األسئلة الشائعة
+12. Final property-owner CTA - هل تمتلك أصالً عقاريًا؟
+13. Footer
+HEADER CONTENT
+Navigation links:
+- الرئيسية
+- مهابة
+- األصول
+- المساهمات
+- تواصل معنا
+CTA buttons:
+- إضافة أصل عقاري
+- طلب دراسة عقارية
+HERO COPY
+Headline:
+نحول األصول العقارية
+إلى مساهمات عقارية ومشاريع استثمارية
+وفق أعلى معايير الحوكمة
+Search fields:
+- ابحث عن فرصة جديدة
+- نوع الخدمة
+- المدينة
+Search button: بحث
+ASSET SECTION
+Title: األصول العقارية
+Subtitle:  مجموعة مختارة من األصول العقارية القابلة للدراسة والتطوير والتحويل إلى فرص استثمارية
+.منظمة
+Example asset cards:
+-  قيد الدراسة- ² م25,000  المساحة-  استخدام تجاري-  الرياض- مجمع النخيل التجاري
+-  قيد الدراسة- ² م32,500  المساحة-  استخدام سكني-  جدة- أرض الواحة
+-  قيد الدراسة- ² م18,600  المساحة-  استخدام تجاري-  الرياض- برج المروج
+-  قيد الدراسة- ² م25,750  المساحة-  استخدام سكني-  الرياض- أرض النخيل
+CONTRIBUTION SECTION
+Title: المساهمات العقارية
+Subtitle: .مساهمات عقارية تدار وفق أعلى معايير الحوكمة والشفافية حتى التخارج
+Each contribution card must show:
+- Contribution name
+- City
+- Stage badge
+- Lifecycle mini timeline
+- Remaining duration
+- Investor count
+- Capital/development amount
+- Details link
+Journey stages:
+> التخارج- > اإلدارة- > الطرح- > التراخيص- > الهيكلة- > الدراسة- استقبال األصل
+MEDIA CENTER
+Title: المركز اإلعالمي والمعرفي
+Featured article:
+مهابة تعلن عن شراكة استراتيجية لتطوير مشاريع نوعية في الرياض
+Knowledge library tabs:
+- دراسات
+- أدلة استثمارية
+- حوكمة المساهمات
+
+
+===== PAGE 39 =====
+- تحليالت السوق
+- أخبار المساهمات
+METRICS
+Use animated counters:
+- 28 أصل قيد الدراسة
+- 14 مساهمة تحت اإلدارة
+- 120+ مزود خدمة معتمدون وشركاء موثوقون
+- 9 فرص استثمارية جاري دراستها وتهيئتها للمساهمات
+FAQ EXAMPLES
+- ما هي المساهمة العقارية؟
+- كيف يتم تحويل األصل إلى مساهمة عقارية؟
+- ما هو الحد األدنى لالكتتاب؟
+- ما هي رسوم دراسة األصل؟
+- ما هي مدة رحلة تحويل األصل؟
+- كيف يتم توزيع األرباح؟
+FINAL CTA
+Headline:
+هل تمتلك أصالً عقاريًا؟
+Text:
+.قد يكون أصلك مؤهالً للتحول إلى مساهمة عقارية أو مشروع استثماري منظم
+Buttons:
+- إضافة أصل عقاري
+- طلب دراسة عقارية
+FOOTER
+Include:
+- Brand block
+- Quick links
+- Support and privacy links
+- Services
+- Contact details
+- Social icons
+- Legal note/disclaimer line
+CORE COMPONENTS TO BUILD
+- Navbar
+- Mobile drawer
+- Button component variants: primary, secondary, ghost, dark, outline
+- Section heading with gold divider
+- SearchBar
+- AssetCard
+- ContributionCard
+- StageTimeline
+- JourneyTimeline
+- ArticleCard
+- KnowledgeTabs
+- MetricCounter
+- PartnerLogoStrip
+- FAQAccordion
+- FinalCTA
+- Footer
+CMS-READY DATA MODELS
+Create typed data structures for:
+- Asset
+- Contribution
+- Article
+- KnowledgeResource
+- FAQ
+- Partner
+- JourneyStep
+- Metric
+- NavigationItem
+REQUIRED ROUTES
+- /
+- /about
+- /assets
+- /assets/[slug]
+
+
+===== PAGE 40 =====
+- /contributions
+- /contributions/[slug]
+- /request-study
+- /submit-asset
+- /media
+- /media/[slug]
+- /faq
+- /contact
+FORMS
+Property submission form fields:
+- Full name
+- Mobile number
+- Email
+- City
+- Asset type
+- Area
+- Deed number optional
+- Asset description
+- File upload
+- Privacy agreement checkbox
+Study request form fields:
+- Full name
+- Mobile number
+- Email
+- Asset type
+- City
+- Area
+- Service type
+- Description
+- File upload
+- Privacy agreement checkbox
+IMAGE GENERATION REQUIREMENT
+Use the image prompt library in this report. Generate or source all images in a unified style:
+- 
+[The separate Mahabah_Agent_Master_Prompt.md file contains the full copy-paste prompt.]

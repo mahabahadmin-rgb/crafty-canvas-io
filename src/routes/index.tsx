@@ -1612,7 +1612,7 @@ function PageAssetDetails({
                     className="absolute inset-0 opacity-40"
                     style={{
                       backgroundImage:
-                        "radial-gradient(circle at 10px 10px, oklch(0.42 0.09 50 / 0.15) 1.5px, transparent 0)",
+                        "radial-gradient(circle at 10px 10px, rgb(29 25 22 / 0.15) 1.5px, transparent 0)",
                       backgroundSize: "20px 20px",
                     }}
                   />

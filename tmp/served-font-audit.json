@@ -1,0 +1,1466 @@
+{
+  "totalRoutes": 39,
+  "totalCssBundles": 38,
+  "failures": {
+    "routeErrors": [],
+    "routeOldFonts": [],
+    "cssFailures": [
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157923266",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157924972",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157925322",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157925916",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157926349",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157926576",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157927291",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157928520",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157929092",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157929741",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157930430",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157931124",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157931761",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157932411",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157933038",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157933736",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157934624",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157935766",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157936590",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157937346",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157938161",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157938886",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157939636",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157939900",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157940041",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157940196",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157940282",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157941677",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157942090",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157942346",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157942681",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157943014",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157943191",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157943443",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157943723",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157943938",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157944247",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      },
+      {
+        "cssPath": "/_next/static/css/app/layout.css?v=1781157945064",
+        "status": 200,
+        "hasHandicrafts": true,
+        "oldFontMatches": [
+          "ui-sans",
+          "system-ui",
+          "ui-mono",
+          "monospace"
+        ],
+        "hasDefaultSans": true,
+        "hasDefaultMono": true,
+        "hasFontFace": true
+      }
+    ]
+  },
+  "report": [
+    {
+      "route": "/",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157923266"
+      ]
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157924972"
+      ]
+    },
+    {
+      "route": "/assets",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157925322"
+      ]
+    },
+    {
+      "route": "/assets/nakheel-commercial-complex",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157925916"
+      ]
+    },
+    {
+      "route": "/assets/alwaha-land",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157926349"
+      ]
+    },
+    {
+      "route": "/assets/almurooj-tower",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157926576"
+      ]
+    },
+    {
+      "route": "/contributions",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157927291"
+      ]
+    },
+    {
+      "route": "/contributions/nakheel-commercial",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157928520"
+      ]
+    },
+    {
+      "route": "/contributions/almurooj-office",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157929092"
+      ]
+    },
+    {
+      "route": "/services",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157929741"
+      ]
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157930430"
+      ]
+    },
+    {
+      "route": "/submit-asset",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157931124"
+      ]
+    },
+    {
+      "route": "/request-study",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157931761"
+      ]
+    },
+    {
+      "route": "/faq",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157932411"
+      ]
+    },
+    {
+      "route": "/media",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157933038"
+      ]
+    },
+    {
+      "route": "/media/strategic-riyadh-partnership",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157933736"
+      ]
+    },
+    {
+      "route": "/news",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157934624"
+      ]
+    },
+    {
+      "route": "/news/governance-framework",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157935766"
+      ]
+    },
+    {
+      "route": "/blog",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157936590"
+      ]
+    },
+    {
+      "route": "/blog/feasibility-study-guide",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157937346"
+      ]
+    },
+    {
+      "route": "/privacy",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157938161"
+      ]
+    },
+    {
+      "route": "/terms",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157938886"
+      ]
+    },
+    {
+      "route": "/disclaimer",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157939636"
+      ]
+    },
+    {
+      "route": "/auth/login",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157939900"
+      ]
+    },
+    {
+      "route": "/auth/register",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157940041"
+      ]
+    },
+    {
+      "route": "/auth/onboarding/individual",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157940196"
+      ]
+    },
+    {
+      "route": "/auth/onboarding/business",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157940282"
+      ]
+    },
+    {
+      "route": "/dashboard",
+      "status": 307,
+      "cssCount": 0,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": []
+    },
+    {
+      "route": "/dashboard/individual",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157941677"
+      ]
+    },
+    {
+      "route": "/dashboard/individual/add-asset",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157942090"
+      ]
+    },
+    {
+      "route": "/dashboard/individual/request-service",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157942346"
+      ]
+    },
+    {
+      "route": "/dashboard/individual/interested-assets",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157942681"
+      ]
+    },
+    {
+      "route": "/dashboard/business",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157943014"
+      ]
+    },
+    {
+      "route": "/dashboard/business/add-contribution",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157943191"
+      ]
+    },
+    {
+      "route": "/dashboard/business/company-contributions",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157943443"
+      ]
+    },
+    {
+      "route": "/dashboard/business/verification",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157943723"
+      ]
+    },
+    {
+      "route": "/dashboard/business/company-profile",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157943938"
+      ]
+    },
+    {
+      "route": "/dashboard/admin",
+      "status": 200,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157944247"
+      ]
+    },
+    {
+      "route": "/does-not-exist-font-check",
+      "status": 404,
+      "cssCount": 1,
+      "hasHandicraftsInHtml": false,
+      "oldFontMatches": [],
+      "css": [
+        "/_next/static/css/app/layout.css?v=1781157945064"
+      ]
+    }
+  ],
+  "cssReport": [
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157923266",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157924972",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157925322",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157925916",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157926349",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157926576",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157927291",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157928520",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157929092",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157929741",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157930430",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157931124",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157931761",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157932411",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157933038",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157933736",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157934624",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157935766",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157936590",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157937346",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157938161",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157938886",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157939636",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157939900",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157940041",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157940196",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157940282",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157941677",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157942090",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157942346",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157942681",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157943014",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157943191",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157943443",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157943723",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157943938",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157944247",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    },
+    {
+      "cssPath": "/_next/static/css/app/layout.css?v=1781157945064",
+      "status": 200,
+      "hasHandicrafts": true,
+      "oldFontMatches": [
+        "ui-sans",
+        "system-ui",
+        "ui-mono",
+        "monospace"
+      ],
+      "hasDefaultSans": true,
+      "hasDefaultMono": true,
+      "hasFontFace": true
+    }
+  ]
+}
