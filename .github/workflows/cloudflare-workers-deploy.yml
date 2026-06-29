@@ -36,13 +36,28 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN || secrets.CF_TOKEN }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           MAHABAH_DEV_ADMIN_EMAIL: ${{ secrets.MAHABAH_DEV_ADMIN_EMAIL }}
           MAHABAH_DEV_ADMIN_PASSWORD: ${{ secrets.MAHABAH_DEV_ADMIN_PASSWORD }}
         run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ]; then
+            export CLOUDFLARE_API_TOKEN
+            export CF_API_TOKEN="$CLOUDFLARE_API_TOKEN"
+            export CF_TOKEN="$CLOUDFLARE_API_TOKEN"
+          elif [ -n "$CF_API_TOKEN" ]; then
+            export CLOUDFLARE_API_TOKEN="$CF_API_TOKEN"
+            export CF_TOKEN="$CF_API_TOKEN"
+          elif [ -n "$CF_TOKEN" ]; then
+            export CLOUDFLARE_API_TOKEN="$CF_TOKEN"
+          else
+            echo "Missing Cloudflare API token."
+            echo "Set one of: CF_TOKEN, CF_API_TOKEN, or CLOUDFLARE_API_TOKEN."
+            exit 1
+          fi
+
           if [[ "${GITHUB_REF_NAME}" == "main" || "${GITHUB_REF_NAME}" == "master" ]]; then
             bun run deploy
           else

@@ -25,8 +25,8 @@ The app is configured for Cloudflare Workers via OpenNext.
 ## 2) Git-based deploy (recommended)
 
 1. Add GitHub Secrets in the repo:
-   - `CF_ACCOUNT_ID`
-   - `CF_API_TOKEN`
+   - `CF_ACCOUNT_ID` or `CLOUDFLARE_ACCOUNT_ID` (optional if `wrangler.jsonc` contains `account_id`)
+   - `CF_API_TOKEN` or `CLOUDFLARE_API_TOKEN` or `CF_TOKEN`
    - `SUPABASE_URL`
    - `SUPABASE_SERVICE_ROLE_KEY`
    - `MAHABAH_DEV_ADMIN_EMAIL` (optional)
@@ -58,6 +58,10 @@ If you are using Cloudflare's dashboard auto-deploy instead of GitHub Actions, u
 - Deploy environment variables: same list as above.
 
 If branch auto-deploy is enabled for non-production, every push to non-production branches will run `bun run upload`.
+
+### Supplied token sample used for local verification
+
+Use your token as one of the supported GitHub secret names above (`CF_API_TOKEN`, `CLOUDFLARE_API_TOKEN`, or `CF_TOKEN`) and keep it in GitHub Secrets.  
 
 ## 3) Local worker-style preview
 
