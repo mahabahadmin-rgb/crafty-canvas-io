@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+import { createRequire } from "node:module";
 
 const nextConfig: NextConfig = {
   images: {
@@ -8,7 +8,15 @@ const nextConfig: NextConfig = {
 };
 
 if (process.env.NODE_ENV === "development") {
-  initOpenNextCloudflareForDev();
+  try {
+    const require = createRequire(import.meta.url);
+    const { initOpenNextCloudflareForDev } = require("@opennextjs/cloudflare") as {
+      initOpenNextCloudflareForDev?: () => void;
+    };
+    initOpenNextCloudflareForDev?.();
+  } catch {
+    // The Cloudflare adapter is only needed for Worker preview/deploy, not local Next dev.
+  }
 }
 
 export default nextConfig;
