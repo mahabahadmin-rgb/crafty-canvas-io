@@ -323,9 +323,8 @@ git commit -m "Add DashboardNavUser footer dropdown"
 "use client";
 
 import type * as React from "react";
-import Link from "next/link";
 import { BrandLogo } from "@/components/layout/brand-logo";
-import { dashboardHref, type DashboardNavGroup, type DashboardRole } from "@/lib/data/dashboard";
+import { type DashboardNavGroup, type DashboardRole } from "@/lib/data/dashboard";
 import { DashboardNav } from "@/components/dashboard/dashboard-nav";
 import { DashboardNavUser } from "@/components/dashboard/dashboard-nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from "@/components/ui/sidebar";
@@ -352,16 +351,15 @@ export function DashboardSidebar({
     <Sidebar side="right" collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="flex h-16 items-center justify-center px-2 group-data-[collapsible=icon]:h-12">
-          <Link href={dashboardHref(role)} aria-label="مهابة" className="group-data-[collapsible=icon]:hidden">
+          <div className="group-data-[collapsible=icon]:hidden">
             <BrandLogo height={56} priority />
-          </Link>
-          <Link
-            href={dashboardHref(role)}
-            aria-label="مهابة"
+          </div>
+          <div
+            aria-hidden="true"
             className="hidden h-9 w-9 items-center justify-center rounded-lg bg-sidebar-accent font-display text-base font-extrabold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex"
           >
             م
-          </Link>
+          </div>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -376,6 +374,8 @@ export function DashboardSidebar({
 ```
 
 `...props` lets callers still pass extra props (e.g. `className="z-30"`) the way `dashboard-shell.tsx` does today. Note `side="right"` and `collapsible="icon"` are spread *before* `{...props}`, so if a caller ever explicitly passed `side`/`collapsible`, it would win — but no caller in Task 5 does, so the fixed right/icon behavior always applies in practice.
+
+Note: `BrandLogo` (in `components/layout/brand-logo.tsx`) already renders its own internal `<Link href="/">` wrapping the logo image — wrapping it in another `Link` here would produce invalid nested `<a>` tags. The collapsed-state "م" glyph is a plain non-interactive `div` (matching the existing pattern in `dashboard-shell.tsx`, e.g. lines ~422-424 and ~650-652, which use a styled `div` with `aria-hidden`, not a link) — clicking it does nothing, consistent with current behavior; the brand mark is only a home-link when expanded, exactly as it behaves today via `dashboardHref`/`BrandLogo` placement elsewhere in this codebase. `dashboardHref` is no longer needed in this file since neither glyph is a link anymore.
 
 - [ ] **Step 2: Type-check**
 
