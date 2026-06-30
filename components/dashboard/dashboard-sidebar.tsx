@@ -12,6 +12,8 @@ export function DashboardSidebar({
   nav,
   activePath,
   ownerName,
+  side: _side,
+  collapsible: _collapsible,
   ...props
 }: {
   role: DashboardRole;
@@ -32,6 +34,7 @@ export function DashboardSidebar({
           <div className="group-data-[collapsible=icon]:hidden">
             <BrandLogo height={56} priority />
           </div>
+          {/* Decorative duplicate of the expanded BrandLogo; not separately announced. */}
           <div
             aria-hidden="true"
             className="hidden h-9 w-9 items-center justify-center rounded-lg bg-sidebar-accent font-display text-base font-extrabold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex"
