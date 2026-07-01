@@ -28,7 +28,7 @@ function AuthArtwork() {
   return (
     <div className="relative hidden overflow-hidden bg-muted lg:block" style={authPanelHeight}>
       <Image
-        src="/images/auth-side-architecture.png"
+        src="/images/auth-side-mahabah-brand.png"
         alt=""
         fill
         priority
