@@ -5,7 +5,7 @@ import { BrandLogo } from "@/components/layout/brand-logo";
 import { type DashboardNavGroup, type DashboardRole } from "@/lib/data/dashboard";
 import { DashboardNav } from "@/components/dashboard/dashboard-nav";
 import { DashboardNavUser } from "@/components/dashboard/dashboard-nav-user";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 
 export function DashboardSidebar({
   role,
@@ -30,16 +30,21 @@ export function DashboardSidebar({
   return (
     <Sidebar side="right" collapsible="icon" {...props}>
       <SidebarHeader>
-        <div className="flex h-16 items-center justify-center px-2 group-data-[collapsible=icon]:h-12">
-          <div className="group-data-[collapsible=icon]:hidden">
-            <BrandLogo height={56} priority />
+        <div className="flex h-16 items-center px-2 group-data-[collapsible=icon]:h-12">
+          {/* Expanded: logo on the right (RTL start), toggle on the left (inner edge) */}
+          <div className="flex w-full items-center justify-between group-data-[collapsible=icon]:hidden">
+            <BrandLogo height={52} priority />
+            <SidebarTrigger
+              className="h-8 w-8 shrink-0 rounded-md text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground rtl:rotate-180"
+              aria-label="طي الشريط الجانبي"
+            />
           </div>
-          {/* Decorative duplicate of the expanded BrandLogo; not separately announced. */}
-          <div
-            aria-hidden="true"
-            className="hidden h-9 w-9 items-center justify-center rounded-lg bg-sidebar-accent font-display text-base font-extrabold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex"
-          >
-            م
+          {/* Collapsed: toggle button centered in icon strip */}
+          <div className="hidden w-full items-center justify-center group-data-[collapsible=icon]:flex">
+            <SidebarTrigger
+              className="h-9 w-9 rounded-lg bg-sidebar-accent text-sidebar-accent-foreground rtl:rotate-180"
+              aria-label="فتح الشريط الجانبي"
+            />
           </div>
         </div>
       </SidebarHeader>

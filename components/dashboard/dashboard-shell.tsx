@@ -92,7 +92,7 @@ function IndividualDashboardShellContent({
         <SidebarInset className="min-w-0">
           <main className="min-w-0 flex-1 px-4 py-5 lg:px-5">
             <div className="mb-5 flex min-h-11 items-center justify-between">
-              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-navy rtl:rotate-180 md:hidden" aria-label="فتح/طي قائمة لوحة التحكم" />
               <div className="hidden lg:block" />
               <div className="ms-auto flex items-center gap-3">
                 <Link href={dashboardHref(role, "notifications")} className="relative grid h-11 w-11 place-items-center rounded-md border mb-border-individual-soft bg-white mb-text-ink transition hover:mb-bg-warm" aria-label="الإشعارات">
@@ -172,7 +172,7 @@ function BusinessDashboardShellContent({
         <SidebarInset className="min-w-0">
           <main className="min-w-0 flex-1 px-4 py-4 lg:px-5">
             <div className="mb-4 flex min-h-12 items-center justify-between border-b mb-border-subtle pb-3">
-              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180" aria-label="فتح/طي قائمة لوحة التحكم" />
+              <SidebarTrigger className="grid h-11 w-11 place-items-center rounded-lg border mb-border-page bg-white mb-text-navy rtl:rotate-180 md:hidden" aria-label="فتح/طي قائمة لوحة التحكم" />
               <div className={cn("hidden lg:block", profileMode ? "flex-1" : "")} />
               <div className={cn("flex items-center mb-text-navy", profileMode ? "gap-3" : "gap-5")}>
                 {profileMode ? (

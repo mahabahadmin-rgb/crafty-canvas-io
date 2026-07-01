@@ -222,36 +222,42 @@ const Sidebar = React.forwardRef<
       )
     }
 
+    const isIconCollapsed = state === "collapsed" && collapsible === "icon"
+    const isOffcanvasCollapsed = state === "collapsed" && collapsible === "offcanvas"
+
+    // Compute width as a concrete value — inline style is immune to Tailwind's
+    // static-scan limitations and guarantees the CSS transition fires correctly.
+    let outerWidthValue: string
+    if (isIconCollapsed) {
+      outerWidthValue = variant === "floating" || variant === "inset"
+        ? "calc(var(--sidebar-width-icon) + 1rem)"
+        : "var(--sidebar-width-icon)"
+    } else if (isOffcanvasCollapsed) {
+      outerWidthValue = "0px"
+    } else {
+      outerWidthValue = "var(--sidebar-width)"
+    }
+
     return (
       <div
         ref={ref}
-        className="group peer hidden text-sidebar-foreground md:block"
+        style={{ width: outerWidthValue }}
+        className={cn(
+          "group peer hidden shrink-0 overflow-hidden text-sidebar-foreground md:block",
+          "transition-[width] duration-200 ease-linear"
+        )}
         data-state={state}
         data-collapsible={state === "collapsed" ? collapsible : ""}
         data-variant={variant}
         data-side={side}
       >
-        {/* This is what handles the sidebar gap on desktop */}
+        {/* Sticky panel — always full sidebar width; outer overflow-hidden clips on collapse */}
         <div
           className={cn(
-            "relative w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear",
-            "group-data-[collapsible=offcanvas]:w-0",
-            "group-data-[side=right]:rotate-180",
+            "sticky top-0 z-10 flex h-svh w-[--sidebar-width] flex-col",
             variant === "floating" || variant === "inset"
-              ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
-              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]"
-          )}
-        />
-        <div
-          className={cn(
-            "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
-            side === "left"
-              ? "start-0 group-data-[collapsible=offcanvas]:start-[calc(var(--sidebar-width)*-1)]"
-              : "end-0 group-data-[collapsible=offcanvas]:end-[calc(var(--sidebar-width)*-1)]",
-            // Adjust the padding for floating and inset variants.
-            variant === "floating" || variant === "inset"
-              ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-e group-data-[side=right]:border-s",
+              ? "p-2"
+              : side === "left" ? "border-r" : "border-l",
             className
           )}
           {...props}
